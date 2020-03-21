@@ -11,3 +11,35 @@ body {
     font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
       monospace;
   }
+  .hero-body{
+    height: 300px;
+    background-color: rgb(24, 24, 109);
+    text-align: center;
+    color: white;
+  }
+  .title {
+    font-size: 150px;
+    color: white;
+  }
+  .subtitle {
+    font-size: 50px;
+    color: white;
+  }
+  .midtitle {
+    font-size: 50px;
+    text-align: center;
+  }
+  .middesc {
+    font-size: x-large;
+    text-align: center;
+    margin: 50px;
+  }
+  .landImg {
+    margin: 0;
+    width: 200px;
+    height: 200px;
+   
+  }
+  .navbar {
+    background-color:rgb(231, 154, 11);
+  }
