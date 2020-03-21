@@ -6,8 +6,8 @@ import { Link } from "react-router-dom";
 
 function Buy() {
     // Setting our component's initial state
-    const [listings, setListings] = useState([])
-
+    const [listings, setListings] = useState([]);
+    const [images, setImages] = useState([]);
     // Load all books and store them with setBooks
     useEffect(() => {
         loadListings()
@@ -20,7 +20,14 @@ function Buy() {
                 setListings(res.data)
             )
             .catch(err => console.log(err));
+        
+        API.getImages()
+        .then(res => console.log(res.data))       
+
     };
+
+
+
 
     //   Deletes a book from the database with a given id, then reloads books from the db
     function deleteListing(id) {
@@ -30,6 +37,7 @@ function Buy() {
     }
     return (
         <>
+        {console.log(listings)}
             <h1>Buy</h1>
             <List>
                 {listings.map(listing => (

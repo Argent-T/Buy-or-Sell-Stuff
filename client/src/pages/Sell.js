@@ -32,8 +32,10 @@ function handleFormSubmit(event) {
     event.preventDefault();
     console.log("logged");
     if (formObject.title && formObject.price && formObject.description) {
+      const file = document.getElementById("file").files[0]
       API.saveListing({
-        img: formObject.img,
+        file:file,
+        img: formObject.myImage,
         title: formObject.title,
         price: formObject.price,
         description: formObject.description
@@ -48,16 +50,17 @@ function handleFormSubmit(event) {
     return (
         <>
             <h1>Sell</h1>
-            <form action="/upload/photo" enctype="multipart/form-data" method="POST"> 
+            <form encType="multipart/form-data"> 
                 <Input 
                 onChange={handleInputChange}
+                id="file"
                 type="file" 
                 name="myImage" 
-                accept="image/*" 
                 />
 
                 <Input
               onChange={handleInputChange}
+              
               name="title"
               placeholder="Title (required)"
             />

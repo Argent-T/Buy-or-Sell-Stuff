@@ -7,6 +7,7 @@ module.exports = {
       .sort({ date: -1 })
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
+    
   },
   findById: function(req, res) {
     db.Listing
@@ -15,10 +16,16 @@ module.exports = {
       .catch(err => res.status(422).json(err));
   },
   create: function(req, res) {
+    console.log( req.file)
+    req.body.filename = req.file.filename
     db.Listing
       .create(req.body)
-      .then(dbModel => res.json(dbModel))
+      .then(dbModel => {
+        console.log(dbModel,'<===')
+        res.json(dbModel);
+      })
       .catch(err => res.status(422).json(err));
+    //res.sendStatus(200)
   },
   update: function(req, res) {
     db.Listing

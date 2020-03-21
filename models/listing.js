@@ -10,10 +10,10 @@ const listingSchema = new Schema({
     type: Number,
     required: true
   },
-  img: { 
-    data: Buffer, 
-      contentType: String
-     },
+  filename:{
+    type: String,
+    required: true
+  },
   description: {
     type:String,
     required: true
