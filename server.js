@@ -14,10 +14,14 @@ if (process.env.NODE_ENV === "production") {
 const MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/boss";
 
   const conn = mongoose.connect(MONGODB_URI, {
-    // useUnifiedTopology: true,
+    useUnifiedTopology: true,
     useNewUrlParser: true,
     // useCreateIndex: true
   })
+
+
+
+  
 
 exports.conn = conn
 exports.MONGO = MONGODB_URI

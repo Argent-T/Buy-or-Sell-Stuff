@@ -4,6 +4,6 @@ let fileSchema = new mongoose.Schema({
     'image': { type: String, required: true }
 });
 
-let File = mongoose.model('file', fileSchema);
+let File = mongoose.model("uploads.files", fileSchema);
 
 module.exports = File;

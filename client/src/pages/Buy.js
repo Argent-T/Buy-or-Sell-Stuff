@@ -7,7 +7,7 @@ import { Link } from "react-router-dom";
 function Buy() {
     // Setting our component's initial state
     const [listings, setListings] = useState([]);
-    const [images, setImages] = useState([]);
+    // const [images, setImages] = useState([]);
     // Load all books and store them with setBooks
     useEffect(() => {
         loadListings()
@@ -22,7 +22,7 @@ function Buy() {
             .catch(err => console.log(err));
         
         API.getImages()
-        .then(res => console.log(res.data))       
+        .then(res => console.log(res.data, "picture data"))       
 
     };
 
@@ -37,7 +37,7 @@ function Buy() {
     }
     return (
         <>
-        {console.log(listings)}
+        {/* {console.log(listings)} */}
             <h1>Buy</h1>
             <List>
                 {listings.map(listing => (

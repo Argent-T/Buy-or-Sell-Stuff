@@ -7,7 +7,7 @@ const chunkSchema = new Schema({
     required: true
   },
   files_id:{
-      type: ObjectId,
+      type: String,
       required:true
   },
   n:{
@@ -19,6 +19,6 @@ const chunkSchema = new Schema({
   }
 });
 
-const chunk = mongoose.model("uploads.chunk", chunkSchema);
+const chunk = mongoose.model("uploads.chunks", chunkSchema);
 
 module.exports = chunk;
