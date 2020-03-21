@@ -15,16 +15,15 @@ export default {
   },
   // Saves a book to the database
   saveListing: function(listingData) {
-    console.log(listingData)
-    const test = new FormData();
-    test.append('file','test')
-    // test.append('title', listingData.title)
-    // test.append('price', listingData.price)
-    // test.append('description', listingData.description)
-    console.log(test)
+    console.log(listingData, "listing data")
+    const form = new FormData();
+    form.append('file',listingData.file)
+    form.append('title', listingData.title)
+    form.append('price', listingData.price)
+    form.append('description', listingData.description)
     const config = { headers:{
       'content-type': 'multipart/form-data'
     }}
-    return axios.post("/api/listings", test, config);
+    return axios.post("/api/listings/", form, config);
   }
 };
