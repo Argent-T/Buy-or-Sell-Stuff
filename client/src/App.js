@@ -13,6 +13,7 @@ import Login from './pages/Login';
 
 function App() {
   return (
+    <>
     <Router>
       <Route exact path="/" component = {Landing} />
       <Route exact path="/profile/:id" component = {Profile} />
@@ -21,9 +22,9 @@ function App() {
       <Route exact path="/signup" component = {Signup} />
       <Route exact path="/login" component = {Login} />
       {/* include route with Id for specific item detail page */}
-      <Footer />
     </Router>
-    
+    <Footer />
+    </>
   );
 }
 
