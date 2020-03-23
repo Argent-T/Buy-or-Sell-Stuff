@@ -29,9 +29,11 @@ function Sell() {
   };
   
 function handleFormSubmit(event) {
+
     event.preventDefault();
     console.log("logged");
     if (formObject.title && formObject.price && formObject.description) {
+      file = document.querySelector('')
       API.saveListing({
         img: formObject.img,
         title: formObject.title,
