@@ -13,22 +13,22 @@ if (process.env.NODE_ENV === "production") {
 // Add routes, both API and view
 const MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/boss";
 
-  const conn = mongoose.connect(MONGODB_URI, {
-    useUnifiedTopology: true,
-    useNewUrlParser: true,
-    // useCreateIndex: true
-  })
+const conn = mongoose.connect(MONGODB_URI, {
+  useUnifiedTopology: true,
+  useNewUrlParser: true,
+  // useCreateIndex: true
+})
 
 
 
-  
+
 
 exports.conn = conn
 exports.MONGO = MONGODB_URI
 const routes = require("./routes");
 app.use(routes);
 // Start the API server
-app.listen(PORT, function() {
+app.listen(PORT, function () {
   console.log(`🌎  ==> API Server now listening on PORT ${PORT}!`);
 });
 // Connect to the Mongo DB

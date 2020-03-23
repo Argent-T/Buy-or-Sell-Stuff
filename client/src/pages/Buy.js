@@ -12,21 +12,29 @@ function Buy() {
     useEffect(() => {
         loadListings()
     }, [])
-
+    
 
     function loadListings() {
         API.getListings()
-            .then(res =>
+            .then(function(res){
                 setListings(res.data)
+                // loadImages(res.data)
+            }
             )
-            .catch(err => console.log(err));
-        
-        API.getImages()
-        .then(res => console.log(res.data, "picture data"))       
-
+            .catch(err => console.log(err));  
+            
     };
 
-
+    // function loadImages(data){
+    //     console.log(data)
+    //     for(i=0; i<data.length; i++){
+    //         API.getImages(data[i].filename)
+    //     }
+        
+        
+    //     // API.getImages(data)
+    //     // .then(res => console.log(res.data, "picture data"))    
+    // }
 
 
     //   Deletes a book from the database with a given id, then reloads books from the db

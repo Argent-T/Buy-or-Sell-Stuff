@@ -1,4 +1,5 @@
 const path = require('path');
+var mongoose = require('mongoose');
 const {createReadStream} = require('fs');
 const { createModel } = require('mongoose-gridfs');
 const db = require("../models");
@@ -15,7 +16,8 @@ const storage = new GridFsStorage({
           if (err) {
             return reject(err);
           }
-          const filename = buf.toString('hex') + path.extname(file.originalname);
+          console.log(buf)
+          const filename = file.originalname;
           const fileInfo = {
             filename: filename,
             bucketName: 'uploads'
@@ -29,17 +31,10 @@ const storage = new GridFsStorage({
 
 //mongoose-gridfs////////////////////////////////////////////
 
-const Attachment = createModel({
-  modelName: 'uploads',
-  connection: connectionInfo.conn
-});
-const readStream = createReadStream('sample.txt');
-const options = ({ filename: 'sample.txt', contentType: 'text/plain' });
-Attachment.write(options, readStream, (error, file) => {
-  //=> {_id: ..., filename: ..., ...}
-});
-
-
+mongoose.connection.on('connected', function(){
+const bucket = createModel({modelName: "uploads"})
+// const readStream = createReadStream()
+})
 
 
 ///////////////////////////////////////////////////////////////
