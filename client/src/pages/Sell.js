@@ -52,7 +52,7 @@ function handleFormSubmit(event) {
                 <Input 
                 onChange={handleInputChange}
                 type="file" 
-                name="myImage" 
+                name="img" 
                 accept="image/*" 
                 />
 
