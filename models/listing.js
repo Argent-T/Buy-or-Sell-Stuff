@@ -11,8 +11,8 @@ const listingSchema = new Schema({
     required: true
   },
   img: { 
-    data: Buffer, 
-      contentType: String
+    type: String, 
+      
      },
   description: {
     type:String,
