@@ -15,6 +15,14 @@ export default {
   },
   // Saves a book to the database
   saveListing: function(listingData) {
-    return axios.post("/api/listings", listingData);
+    console.log(listingData)
+    const test = new FormData();
+    test.append('file',listingData.img)
+    
+    test.append('title', listingData.title)
+    test.append('price', listingData.price)
+    test.append('description', listingData.description)
+    console.log(test)
+    return axios.post("/api/listings", test);
   }
 };
