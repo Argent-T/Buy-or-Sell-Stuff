@@ -8,17 +8,17 @@ import Landing from './pages/Landing';
 import Profile from './pages/Profile';
 import Buy from './pages/Buy';
 import Sell from './pages/Sell';
-import Signup from './pages/SignUp';
 import Login from './pages/Login';
+import passport from 'passport';
 
 function App() {
   return (
     <Router>
-      <Route exact path="/" component = {Landing} />
+      <Route exact path="/" component = {passport} />
+      {/* <Route exact path="/" component = {Landing} /> */}
       <Route exact path="/profile/:id" component = {Profile} />
       <Route exact path="/buy" component = {Buy} />
       <Route exact path="/sell" component = {Sell} />
-      <Route exact path="/signup" component = {Signup} />
       <Route exact path="/login" component = {Login} />
       {/* include route with Id for specific item detail page */}
       <Footer />
