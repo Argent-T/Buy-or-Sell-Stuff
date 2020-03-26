@@ -3,13 +3,12 @@ import { BrowserRouter as Router, Route } from "react-router-dom";
 import './App.css';
 import Footer from './components/Footer';
 
-import Navbar from './components/Navbar';
-import Landing from './pages/Landing';
+// import Navbar from './components/Navbar';
+// import Landing from './pages/Landing';
 import Profile from './pages/Profile';
 import Buy from './pages/Buy';
 import Sell from './pages/Sell';
-import Login from './pages/Login';
-import passport from 'passport';
+import passport from './components/passport';
 
 function App() {
   return (
@@ -19,7 +18,7 @@ function App() {
       <Route exact path="/profile/:id" component = {Profile} />
       <Route exact path="/buy" component = {Buy} />
       <Route exact path="/sell" component = {Sell} />
-      <Route exact path="/login" component = {Login} />
+      {/* <Route exact path="/login" component = {Login} /> */}
       {/* include route with Id for specific item detail page */}
       <Footer />
     </Router>

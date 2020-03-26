@@ -14,7 +14,7 @@ const MongoStore = require('connect-mongo')(session)
 const dbConnection = require('./models/db') // loads our connection to the mongo database
 const passport = require('./passport')
 const app = express()
-const PORT = process.env.PORT || 3001;
+const PORT = process.env.PORT || 8080;
 
 
 app.use(express.urlencoded({ extended: true }));
@@ -47,13 +47,14 @@ app.use(passport.session())
 if (process.env.NODE_ENV === 'production') {
 	const path = require('path')
 	console.log('YOU ARE IN THE PRODUCTION ENV')
-	app.use('/static', express.static(path.join(__dirname, '../build/static')))
+	app.use('/static', express.static(path.join(__dirname, '..client/build/static')))
 	app.get('/', (req, res) => {
-		res.sendFile(path.join(__dirname, '../build/'))
+		res.sendFile(path.join(__dirname, './client/build'))
 	})
 }
 
 // Add routes, both API and view
+app.use('/auth', require('./auth'))
 app.use(routes);
 
 // ====== Error handler ====
