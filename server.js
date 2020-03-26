@@ -14,19 +14,15 @@ const MongoStore = require('connect-mongo')(session)
 const dbConnection = require('./models/db') // loads our connection to the mongo database
 const passport = require('./passport')
 const app = express()
-const PORT = process.env.PORT || 8080;
+const PORT = process.env.PORT || 3001;
 
-
-app.use(express.urlencoded({ extended: true }));
-app.use(bodyParser({limit: "50mb"}))
-app.use(express.json());
-// ===== Middleware ====
 app.use(morgan('dev'))
 app.use(
 	bodyParser.urlencoded({
 		extended: false
 	})
 )
+
 app.use(bodyParser.json())
 app.use(
 	session({
@@ -41,6 +37,10 @@ app.use(
 app.use(passport.initialize())
 app.use(passport.session())
 
+app.use(express.urlencoded({ extended: true }));
+app.use(bodyParser({limit: "50mb"}))
+app.use(express.json());
+// ===== Middleware ====
 
 // Serve up static assets (usually on heroku)
 
@@ -53,9 +53,11 @@ if (process.env.NODE_ENV === 'production') {
 	})
 }
 
-// Add routes, both API and view
+/* Express app ROUTING */
 app.use('/auth', require('./auth'))
-app.use(routes);
+// Add routes, both API and view
+
+// app.use(routes);
 
 // ====== Error handler ====
 app.use(function(err, req, res, next) {
@@ -65,8 +67,8 @@ app.use(function(err, req, res, next) {
 })
 
 // Connect to the Mongo DB
-mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/boss",
-{ useUnifiedTopology: true, useNewUrlParser: true, useCreateIndex: true });
+// mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/boss",
+// { useUnifiedTopology: true, useNewUrlParser: true, useCreateIndex: true });
 
 // Start the API server
 app.listen(PORT, function() {
