@@ -114,17 +114,17 @@ body {
   font-weight: 25px;
   
 }
-/* TextArea {
+.tag:not(body).is-black {
+  margin-top: -20px !important;
   font-size: 20px;
-} */
-
-/* .sellContent {
-  margin: 50px;
-  border-radius: 30%;
-  
-} */
-
-
+}
+.content.is-large {
+  color: black;
+  text-align: center;
+}
+.list-overflow-container li a {
+  color: black !important;
+}
 .mySection {
   background-color: #F93122;
   color: white;
