@@ -5,29 +5,64 @@ import DeleteBtn from "../components/DeleteBtn";
 import { Link } from "react-router-dom";
 import Navbar from "../components/Navbar";
 import SearchForm from "../components/SearchForm"
+import {Select} from "../components/Form"
 
 function Buy() {
     // Setting our component's initial state
     const [listings, setListings] = useState([]);
     const [results, setResults] = useState([]);
-    const [search, setSearch] = useState("")
+    const [search, setSearch] = useState("");
+    const [category, setCategory] = useState("");
+    const categories = ["Select a Category","Clothes","Cars","Sports","Books","Computers", "Electronics","Toys","Other"]
+
     // Load all books and store them with setBooks
     useEffect(() => {
         loadListings();
         
     }, []);
 
+    // SEARCH BAR FUNCTION/////////////////
     useEffect(() =>{
-        var text = search.toLocaleLowerCase();
-        var filtered = listings.filter(function (data){
-            return data.title.toLowerCase().includes(text)
-        });
-        setResults(filtered);
+
+        if(search == ""){
+            setResults(listings)
+            console.log("test")
+        }
+        else{
+            var text = search.toLocaleLowerCase();
+            var filtered = results.filter(function (data){
+                return data.title.toLowerCase().includes(text)
+            });
+            setResults(filtered);
+        }
+       
     },[search])
+    ////////////////////////////////////////////////
+
+
+    useEffect(()=>{
+        if(category == "Select a Category"){
+            console.log(listings)
+            setResults(listings)
+        }
+        else{
+            var cat = category
+            var filtered = listings.filter(function(data){
+                console.log(data)
+                return data.category.includes(cat)
+            });
+            setResults(filtered)
+        }
+      
+    }, [category])
 
     const handleInputChange = event => {
         setSearch(event.target.value);
     };
+    const categorySearch = event => {
+        setCategory(event.target.value);
+    }
+
     function loadListings() {
         API.getListings()
             .then(res => {
@@ -48,9 +83,14 @@ function Buy() {
             <Navbar />
             <h1>Buy</h1>
             <SearchForm
-                            handleInputChange={handleInputChange}
-
-                        />
+             handleInputChange={handleInputChange}
+            />
+             <Select 
+                id="category"
+                name = "category"
+                onChange = {categorySearch}
+                categories = {categories}
+                />
             <List>
                 <div className="columns">
                 {results.map(listing => (
