@@ -3,24 +3,22 @@ import API from "../utils/API";
 import { List, ListItem } from "../components/List";
 import DeleteBtn from "../components/DeleteBtn";
 import { Link } from "react-router-dom";
+import Navbar from "../components/Navbar";
 
 function Buy() {
     // Setting our component's initial state
-    const [listings, setListings] = useState([])
+    const [listings, setListings] = useState([]);
 
     // Load all books and store them with setBooks
     useEffect(() => {
-        loadListings()
-    }, [])
-
+        loadListings();
+    }, []);
 
     function loadListings() {
         API.getListings()
-            .then(res =>
-                setListings(res.data)
-            )
+            .then(res => setListings(res.data))
             .catch(err => console.log(err));
-    };
+    }
 
     //   Deletes a book from the database with a given id, then reloads books from the db
     function deleteListing(id) {
@@ -30,21 +28,59 @@ function Buy() {
     }
     return (
         <>
+            <Navbar />
             <h1>Buy</h1>
             <List>
+                <div className="columns">
                 {listings.map(listing => (
                     <ListItem key={listing._id}>
                         <Link to={"/listings/" + listing._id}>
-                            <strong>
-                                {listing.title} by ${listing.price} Photo: <img width= "200px" height= "200px" src={ require=(listing.img) }/>
-                            </strong>
+                            <div className="container">
+                            <div className="card listCard">
+                            <div className="columns">
+                            <div className="column">
+                                <div className="card-image">
+                                    <figure className="image cardImg">
+                                        <img src={(require = listing.img)} alt="Placeholder image" />
+                                    </figure>
+                                </div>
+                                </div>
+                               
+                                <div className="column">
+                                <div className="card-content">
+                                    <div class="media">
+                                        <div class="media-left">
+                                            <h2>{listing.title}</h2>
+                                            <div class="media-content">
+                                                <h3>${listing.price}</h3>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="content">
+                                        <p>{listing.description}</p>
+                                    </div>
+                                    <div className="action-bar">
+                                        <button className="btn btn-danger">Favorite</button>
+                                        <button className="btn btn-success">Buy</button>
+                                    </div>
+                                </div>
+                            </div>
+                            </div>
+                            </div>
+                            </div> 
+                            {/* </div>
+                                    </div> */}
+                            {/* <strong>
+                                {listing.title} by ${listing.price} Photo: <img width="200px" height="200px" src={require = (listing.img)} />
+                            </strong> */}
                         </Link>
-                        <DeleteBtn onClick={() => deleteListing(listing._id)} />
                     </ListItem>
                 ))}
+                </div>
             </List>
         </>
-    )
+    );
 }
 
 export default Buy;
