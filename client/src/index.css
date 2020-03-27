@@ -44,6 +44,7 @@ body {
     background-color:rgb(231, 154, 11);
   }
 
+
   .listCard {
     width: 500px;
     margin: 10px;
@@ -155,4 +156,39 @@ body {
 .listBtn {
   width: 300px;
   color: aqua;
+
+  .facebook{
+    color:white;
+    background-color: #4267B2;
+}
+
+.tweet{
+    background-color: #55acee;
+    color: white;
+}
+
+.email{
+    background-color: grey;
+    color: white;
+}
+.center{
+  text-align: center;
+}
+#detailPrice{
+  font-size: 50px;
+}
+#detailTitle{
+  font-size: 30px;
+}
+#detailUsername{
+  text-align:left;
+  margin-left:10px;
+}
+.placeBid{
+  background-color: blue;
+  color: white;
+  padding: 10px;
+  cursor:pointer;
+  font-size: 30px;
+
 }
