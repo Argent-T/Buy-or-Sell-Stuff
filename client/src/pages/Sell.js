@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import API from "../utils/API";
-import { Input, TextArea, FormBtn } from "../components/Form";
+import { Input, TextArea, FormBtn, Select } from "../components/Form";
 import Navbar from "../components/Navbar";
 
 
@@ -9,6 +9,7 @@ function Sell() {
   const [listings, setListings] = useState([])
   const [formObject, setFormObject] = useState({})
 
+  const categories = ["Select a Category","Clothes","Cars","Sports","Books","Computers", "Electronics","Toys","Other"]
   // Load all books and store them with setBooks
   useEffect(() => {
     loadListings()
@@ -54,15 +55,20 @@ function Sell() {
   function handleFormSubmit(event) {
 
     event.preventDefault();
-    console.log("logged");
+    
     if (formObject.title && formObject.price && formObject.description) {
 
+      if(formObject.category == "Select a Category"){
+        alert("Please Select a Category.")
+      }
+      else{
       var file = document.querySelector('#file').files[0]
       console.log(file)
       encodeImageFileAsURL(file)
         .then(data => {
           API.saveListing({
             img: data,
+            category: formObject.category,
             title: formObject.title,
             price: formObject.price,
             description: formObject.description
@@ -70,6 +76,8 @@ function Sell() {
             .then(res => loadListings())
             .catch(err => console.log(err));
         })
+        console.log("logged")
+      }
     }
   }
 
@@ -112,7 +120,13 @@ function Sell() {
                   name="img"
                   accept="image/*"
                 />
-
+                <Select 
+                id="category"
+                name = "category"
+                onChange = {handleInputChange}
+                categories = {categories}
+                />
+                 
                 <FormBtn 
                   disabled={!(formObject.title && formObject.price && formObject.description)}
                   onClick={handleFormSubmit}
