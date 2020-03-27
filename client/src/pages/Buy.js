@@ -4,19 +4,36 @@ import { List, ListItem } from "../components/List";
 import DeleteBtn from "../components/DeleteBtn";
 import { Link } from "react-router-dom";
 import Navbar from "../components/Navbar";
+import SearchForm from "../components/SearchForm"
 
 function Buy() {
     // Setting our component's initial state
     const [listings, setListings] = useState([]);
-
+    const [results, setResults] = useState([]);
+    const [search, setSearch] = useState("")
     // Load all books and store them with setBooks
     useEffect(() => {
         loadListings();
+        
     }, []);
 
+    useEffect(() =>{
+        var text = search.toLocaleLowerCase();
+        var filtered = listings.filter(function (data){
+            return data.title.toLowerCase().includes(text)
+        });
+        setResults(filtered);
+    },[search])
+
+    const handleInputChange = event => {
+        setSearch(event.target.value);
+    };
     function loadListings() {
         API.getListings()
-            .then(res => setListings(res.data))
+            .then(res => {
+                setListings(res.data)
+                setResults(res.data)
+            })
             .catch(err => console.log(err));
     }
 
@@ -30,9 +47,13 @@ function Buy() {
         <>
             <Navbar />
             <h1>Buy</h1>
+            <SearchForm
+                            handleInputChange={handleInputChange}
+
+                        />
             <List>
                 <div className="columns">
-                {listings.map(listing => (
+                {results.map(listing => (
                     <ListItem key={listing._id}>
                         <Link to={"/listings/" + listing._id}>
                             <div className="container">
