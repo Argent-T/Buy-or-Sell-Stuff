@@ -36,9 +36,7 @@ function Navbar (){
   <div className="navbar-brand">
     <div className="navbar-item">
     <Link to="/">
-    <h1>BOSS</h1>
-
-      <img src="../images/screenshot.png" width="112" height="28" alt="logo"/>
+    <h1 className="navBoss"><strong>BOSS</strong></h1>
     </Link>
     </div>
      <div role="button" className="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
@@ -50,13 +48,30 @@ function Navbar (){
   <div id="navbarBasicExample" className="navbar-menu">
   <div className="navbar-start">
   <div className="navbar-item">
-      <Link to="/">Home</Link>
+      <Link to="/" className="links">Home</Link>
         
   </div>
   <div className="navbar-item">
-       <Link to="/profile"> Profile</Link>
+       <Link to="/profile" className="links"> Profile</Link>
   </div>
-  <div className="navbar-item has-dropdown is-hoverable">
+  <div className="navbar-item">
+      <Link to="/buy" className="links">Buy</Link>
+        
+  </div>
+
+  <div className="navbar-item">
+      <Link to="/sell" className="links">Sell</Link>
+        
+  </div>
+  <div className="navbar-item">
+      <Link to="/contact" className="links">Contact</Link>
+        
+  </div>
+
+
+
+
+  {/* <div className="navbar-item has-dropdown is-hoverable">
   <div className="navbar-link">
           More
         </div>
@@ -76,16 +91,16 @@ function Navbar (){
           </div>
         </div>
 
-  </div>
+  </div> */}
   </div>
   <div className="navbar-end">
       <div className="navbar-item">
         <div className="buttons">
-          <div className="button is-primary">
+          <div className="button is-light">
             <Link to="/signup"><strong>Sign up</strong></Link> 
           </div>
           <div className="button is-light">
-            <Link to="/login">Log in</Link>
+            <Link to="/login"><strong>Log in</strong></Link>
           </div>
         </div>
       </div>

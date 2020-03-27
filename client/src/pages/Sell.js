@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import API from "../utils/API";
 import { Input, TextArea, FormBtn } from "../components/Form";
+import Navbar from "../components/Navbar";
+
 
 function Sell() {
   // Setting our component's initial state
@@ -75,39 +77,58 @@ function Sell() {
 
   return (
     <>
-      <h1>Sell</h1>
-      <form action="/upload/photo" enctype="multipart/form-data" method="POST">
-        <Input
-          onChange={handleInputChange}
-          id="file"
-          type="file"
-          name="img"
-          accept="image/*"
-        />
+      <Navbar />
+      <section className="mySection">
+        <div className="columns is-vcentered">
+          <div className="column is-5-tablet is-5-desktop">
+            <div className="myHero">
+              <h1>What Are You Selling?</h1>
+              <form action="/upload/photo" enctype="multipart/form-data" method="POST">
+                <div className="hr"></div>
+                <h2 className="headingTitle">Enter The Item Name</h2>
+                <Input className="inputTitle"
+                  onChange={handleInputChange}
+                  name="title"
+                  placeholder="Title (required)"
+                />
+                <h2 className="headingPrice">Selling Price</h2>
 
-        <Input
-          onChange={handleInputChange}
-          name="title"
-          placeholder="Title (required)"
-        />
-        <Input
-          onChange={handleInputChange}
-          name="price"
-          placeholder="Price (required)"
-        />
-        <TextArea
-          onChange={handleInputChange}
-          name="description"
-          placeholder="Description (required)"
-        />
-        <FormBtn
-          disabled={!(formObject.title && formObject.price && formObject.description)}
-          onClick={handleFormSubmit}
-        >
-          Submit Listing
-              </FormBtn>
-      </form>
+                <Input className="inputPrice"
+                  onChange={handleInputChange}
+                  name="price"
+                  placeholder="Price (required)"
+                />
+                <h2 className="headingDesc">Item Description</h2>
 
+                  <TextArea className="inputDesc"
+                    onChange={handleInputChange}
+                    name="description"
+                    placeholder="Description (required)"
+                  />
+                <Input className="chooseFile"
+                  onChange={handleInputChange}
+                  id="file"
+                  type="file"
+                  name="img"
+                  accept="image/*"
+                />
+
+                <FormBtn 
+                  disabled={!(formObject.title && formObject.price && formObject.description)}
+                  onClick={handleFormSubmit}
+                >
+                  Submit Listing
+               </FormBtn>
+              </form>
+            </div>
+          </div>
+          <div className="column is-7-tablet is-7-desktop">
+            <figure className="image is4by3">
+              <img src="/images/sell-stuff-online.jpg" />
+            </figure>
+          </div>
+        </div>
+      </section>
     </>
   );
 }

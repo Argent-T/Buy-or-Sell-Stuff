@@ -5,7 +5,7 @@ function Landing() {
   return (
     <>
       <section className="hero">
-        <img src="/images/sell-stuff-online.jpg" />
+        <img src="/images/landing.jpg" />
 
         {/* <div className="hero-body">
           <div className="container">
@@ -15,7 +15,8 @@ function Landing() {
         </div> */}
       </section>
       <Navbar />
-      <h1 className="midtitle">BOSS</h1>
+      <h1 className="midtitle">Buy Or Sell Stuff</h1>
+      {/* <img src="/images/boss.png" /> */}
       <hr />
       <div className="containter middesc">
         <p>Buy or Sell Stuff App</p>
