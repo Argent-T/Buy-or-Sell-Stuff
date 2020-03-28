@@ -56,6 +56,10 @@ function Buy() {
       
     }, [category])
 
+
+
+
+    
     const handleInputChange = event => {
         setSearch(event.target.value);
     };

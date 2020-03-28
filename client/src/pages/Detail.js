@@ -5,7 +5,7 @@ import Navbar from "../components/Navbar";
 
 function Detail(props) {
     const [listing, setListing] = useState({})
-
+    const [bidvalue, setBidValue] = useState()
     // When this component mounts, grab the book with the _id of props.match.params.id
     // e.g. localhost:3000/books/599dcb67f0f16317844583fc
     const { id } = useParams()
@@ -14,6 +14,9 @@ function Detail(props) {
             .then(res => setListing(res.data))
             .catch(err => console.log(err));
     }, [])
+
+
+
     const bid = document.querySelector(".modal")
 
     function placeBid() {
@@ -24,11 +27,21 @@ function Detail(props) {
     function closeModal(){
         bid.classList.remove("is-active")
     }
-
+// SUBMIT BID/////////////////////////////////////////////
     function submitBid(){
-        bid.classList.remove("is-active")
-    }
+        var val = document.getElementById("bid").value;
+        console.log(val)
 
+        if(val <= listing.price){
+            alert("you must submit a higher bid")
+        }
+        else{
+           
+            
+        }
+        // bid.classList.remove("is-active")
+    }
+/////////////////////////////////////////////////////////////
 
     function bidDate(){
         if(listing.bidDate === undefined){
@@ -64,7 +77,7 @@ function Detail(props) {
                     <br></br>
                     <div className="columns">
                         <div className="column is-half">
-                            <div className="center">Category: "Category Here"</div>
+                            <div className="center">Category: {listing.category}</div>
                             <div id="detailUsername center">Listing by: "UserNameHere"</div>
                             <div id="detailUsername center">Current Bid by: "UserNameHere"</div>
                         <div id="bidDate">{bidDate()}</div>
@@ -79,7 +92,7 @@ function Detail(props) {
                                     </header>
                                     <section className="modal-card-body">
                                         <form>
-                                            <input placeholder="              $$$"></input>
+                                            <input id="bid" placeholder="$$$"></input>
                                         </form>
                                     </section>
                                     <footer className="modal-card-foot">

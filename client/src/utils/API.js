@@ -18,5 +18,8 @@ export default {
     console.log(listingData)
  
     return axios.post("/api/listings", listingData);
+  },
+  updateListing: function(id, listingData){
+    return axios.put("/api/listings/" + id, listingData);
   }
 };
