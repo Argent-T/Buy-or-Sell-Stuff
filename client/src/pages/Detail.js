@@ -29,6 +29,20 @@ function Detail(props) {
         bid.classList.remove("is-active")
     }
 
+
+    function bidDate(){
+        if(listing.bidDate === undefined){
+            return
+        }
+        else{
+            var d = listing.bidDate;
+           var date = d.substring(0,10);
+            console.log(date);
+            return ("Auction End Date: " + date);
+        }
+        
+    }
+
     return (
         <>
             <Navbar />
@@ -53,6 +67,7 @@ function Detail(props) {
                             <div className="center">Category: "Category Here"</div>
                             <div id="detailUsername center">Listing by: "UserNameHere"</div>
                             <div id="detailUsername center">Current Bid by: "UserNameHere"</div>
+                        <div id="bidDate">{bidDate()}</div>
                         </div>
                         <div className="column is-half">
                             <div className="modal">
