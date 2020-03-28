@@ -26,18 +26,34 @@ body {
     color: white;
   }
   .midtitle {
+    font-size: 150px;
+    text-align: center;
+    /* font-family: 'Cookie', cursive;  */
+    /* font-family: 'Permanent Marker', cursive; */
+    font-family: 'Merienda', cursive;
+    color: rgb(71, 171, 218);
+  }
+  .midtitle2 {
+    margin-top: -80px;
     font-size: 50px;
     text-align: center;
+    /* font-family: 'Cookie', cursive;  */
+    /* font-family: 'Permanent Marker', cursive; */
+    font-family: 'Merienda', cursive;
+    color: rgb(71, 171, 218);
+ 
   }
   .middesc {
     font-size: x-large;
     text-align: center;
     margin: 50px;
   }
-  .landImg {
-    margin: 0;
-    width: 200px;
-    height: 200px;
+  .landingImg {
+    /* margin: 0; */
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+
    
   }
   .navbar {
