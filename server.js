@@ -5,16 +5,14 @@ if (process.env.NODE_ENV !== 'production') {
 require('dotenv').config()
 
 const express = require("express");
-const mongoose = require("mongoose");
-const routes = require("./routes");
 const bodyParser = require('body-parser')
 const morgan = require('morgan')
 const session = require('express-session')
 const MongoStore = require('connect-mongo')(session)
-const dbConnection = require('./models/db') // loads our connection to the mongo database
+const dbConnection = require('./models') // loads our connection to the mongo database
 const passport = require('./passport')
 const app = express()
-const PORT = process.env.PORT || 3001;
+const PORT = process.env.PORT || 8080;
 
 app.use(morgan('dev'))
 app.use(
@@ -37,9 +35,6 @@ app.use(
 app.use(passport.initialize())
 app.use(passport.session())
 
-app.use(express.urlencoded({ extended: true }));
-app.use(bodyParser({limit: "50mb"}))
-app.use(express.json());
 // ===== Middleware ====
 
 // Serve up static assets (usually on heroku)
@@ -47,9 +42,9 @@ app.use(express.json());
 if (process.env.NODE_ENV === 'production') {
 	const path = require('path')
 	console.log('YOU ARE IN THE PRODUCTION ENV')
-	app.use('/static', express.static(path.join(__dirname, '..client/build/static')))
+	app.use('/static', express.static(path.join(__dirname, './build/static')))
 	app.get('/', (req, res) => {
-		res.sendFile(path.join(__dirname, './client/build'))
+		res.sendFile(path.join(__dirname, './build/'))
 	})
 }
 

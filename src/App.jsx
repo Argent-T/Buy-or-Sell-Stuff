@@ -1,11 +1,19 @@
+
+// import Footer from './components/Footer';
+// import Navbar from './components/Navbar';
+import Landing from './pages/Landing';
+// import Profile from './pages/Profile';
+// import Buy from './pages/Buy';
+// import Sell from './pages/Sell';
+
 import React, { Component } from 'react'
 import axios from 'axios'
 import { Route, Link } from 'react-router-dom'
 import './App.css'
-import LoginForm from './Login/LoginForm'
-import SignupForm from './SignupForm'
-import Header from './Header'
-import Home from './Home'
+import LoginForm from './components/Login/LoginForm'
+import SignupForm from './components/SignupForm'
+import Header from './components/Header'
+import Home from './components/Home'
 
 const DisplayLinks = props => {
 	if (props.loggedIn) {
@@ -50,7 +58,7 @@ const DisplayLinks = props => {
 	}
 }
 
-class passport extends Component {
+class App extends Component {
 	constructor() {
 		super()
 		this.state = {
@@ -118,8 +126,8 @@ class passport extends Component {
 				{/* LINKS to our different 'pages' */}
 				<DisplayLinks _logout={this._logout} loggedIn={this.state.loggedIn} />
 				{/*  ROUTES */}
-				{/* <Route exact path="/" component={Home} /> */}
-				<Route exact path="/" render={() => <Home user={this.state.user} />} />
+				<Route exact path="/landind" component={Landing} />
+				<Route exact path="/" render={() => <Landing user={this.state.user} />} />
 				<Route
 					exact
 					path="/login"
@@ -136,4 +144,4 @@ class passport extends Component {
 	}
 }
 
-export default passport
+export default App

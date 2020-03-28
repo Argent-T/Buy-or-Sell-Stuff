@@ -35,16 +35,12 @@
     "nodemon": "^1.18.7"
   },
   "scripts": {
-    "start": "export NODE_ENV=\"production\" && node server/server.js",
-    "server": "nodemon server.js",
-    "start:prod": "node server.js",
-    "start:dev": "concurrently \"nodemon --ignore 'client/*'\" \"npm run client\"",
-    "client": "cd client && npm run start",
-    "seed": "node scripts/seedDB.js",
-    "install": "cd client && npm install",
-    "build": "cd client && npm run build",
-    "heroku-postbuild": "npm run build",
-    "prod": "export NODE_ENV=\"production\" && nodemon server/server.js"
+    "start": "export NODE_ENV=\"production\" && node server.js",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject",
+    "dev": "concurrently \"react-scripts start\" \"nodemon server.js\"",
+    "prod": "export NODE_ENV=\"production\" && nodemon server.js"
   },
   "repository": {
     "type": "git",
@@ -55,5 +51,5 @@
   },
   "homepage": "https://github.com/Argent-T/Project-3-name-pending#readme",
   "description": "",
-  "proxy": "http://localhost:3001"
+  "proxy": "http://localhost:8080"
 }
