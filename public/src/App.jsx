@@ -1,7 +1,7 @@
 
 // import Footer from './components/Footer';
 // import Navbar from './components/Navbar';
-import Landing from './pages/Landing';
+// import Landing from './pages/Landing';
 // import Profile from './pages/Profile';
 // import Buy from './pages/Buy';
 // import Sell from './pages/Sell';
@@ -126,8 +126,7 @@ class App extends Component {
 				{/* LINKS to our different 'pages' */}
 				<DisplayLinks _logout={this._logout} loggedIn={this.state.loggedIn} />
 				{/*  ROUTES */}
-				<Route exact path="/landind" component={Landing} />
-				<Route exact path="/" render={() => <Landing user={this.state.user} />} />
+				<Route exact path="/" render={() => <Home user={this.state.user} />} />
 				<Route
 					exact
 					path="/login"
@@ -145,3 +144,15 @@ class App extends Component {
 }
 
 export default App
+
+{/* <Router>
+      <Route exact path="/" component = {Landing} />
+      <Route exact path="/profile/:id" component = {Profile} />
+      <Route exact path="/buy" component = {Buy} />
+      <Route exact path="/sell" component = {Sell} />
+      <Route exact path="/signup" component = {Signup} />
+      <Route exact path="/login" component = {Login} />
+      <Route exact path="/listings/:id">
+            <Detail />
+</Route>  */}
+    

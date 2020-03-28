@@ -1,5 +1,4 @@
 import React from 'react'
-import Landing from '../pages/Landing'
 // TODO - add proptypes
 
 const Home = props => {
@@ -19,7 +18,6 @@ const Home = props => {
 				<code>
 					{JSON.stringify(props)}
 				</code>
-				<Landing/>
 			</div>
 		)
 	}
