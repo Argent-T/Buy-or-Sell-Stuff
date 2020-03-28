@@ -81,7 +81,10 @@ function Buy() {
     return (
         <>
             <Navbar />
-            <h1>Buy</h1>
+            <div className="content is-large">
+                <h1>What do we want to say here?</h1>
+            </div>
+
             <SearchForm
              handleInputChange={handleInputChange}
             />
@@ -91,55 +94,38 @@ function Buy() {
                 onChange = {categorySearch}
                 categories = {categories}
                 />
-            <List>
-                <div className="columns">
-                {results.map(listing => (
-                    <ListItem key={listing._id}>
-                        <Link to={"/listings/" + listing._id}>
-                            <div className="container">
-                            <div className="card listCard">
-                            <div className="columns">
-                            <div className="column">
-                                <div className="card-image">
-                                    <figure className="image cardImg">
-                                        <img src={(require = listing.img)} alt="Placeholder image" />
-                                    </figure>
-                                </div>
-                                </div>
-                               
-                                <div className="column">
-                                <div className="card-content">
-                                    <div class="media">
-                                        <div class="media-left">
-                                            <h2>{listing.title}</h2>
-                                            <div class="media-content">
-                                                <h3>${listing.price}</h3>
-                                            </div>
+                            <List>
+                <div className="columns is-multiline">
+                    {listings.map(listing => (
+                        <div className="column is-narrow is-one-quarter-desktop is-half-tablet">
+                            <ListItem key={listing._id}>
+                                <Link to={"/listings/" + listing._id}>
+                                    <h1 className="content is-large "><strong>{listing.title}</strong></h1>
+                                    <div className="card">
+                                        <div className="card-image">
+                                            <figure className="image is-3by2">
+                                                <img src={(require = listing.img)} alt="Placeholder image" />
+                                            </figure>
+                                            {/* <div className="card-content is-overlay">
+                                                <span className="tag is-black itemName">{listing.title}</span>
+                                            </div> */}
                                         </div>
-                                    </div>
+                                        <footer className="card-footer">
+                                            <a className="card-footer-item">
+                                            <strong>BUY</strong></a>
+                                            <a className="card-footer-item">
+                                            <strong>BID</strong></a>
 
-                                    <div class="content">
-                                        <p>{listing.description}</p>
+                                        </footer>
                                     </div>
-                                    <div className="action-bar">
-                                        <button className="btn btn-danger">Favorite</button>
-                                        <button className="btn btn-success">Buy</button>
-                                    </div>
-                                </div>
-                            </div>
-                            </div>
-                            </div>
-                            </div> 
-                            {/* </div>
-                                    </div> */}
-                            {/* <strong>
-                                {listing.title} by ${listing.price} Photo: <img width="200px" height="200px" src={require = (listing.img)} />
-                            </strong> */}
-                        </Link>
-                    </ListItem>
-                ))}
+                                </Link>
+                            </ListItem>
+                        </div>
+
+                    ))}
                 </div>
             </List>
+
         </>
     );
 }

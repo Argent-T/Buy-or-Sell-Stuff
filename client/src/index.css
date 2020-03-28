@@ -1,87 +1,89 @@
 body {
-    margin: 0;
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-      'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-      sans-serif;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-  }
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+.hero-body{
+  height: 300px;
+  background-color: rgb(24, 24, 109);
+  text-align: center;
+  color: white;
+}
+.title {
+  font-size: 150px;
+  color: white;
+}
+.subtitle {
+  font-size: 50px;
+  color: white;
+}
+.midtitle {
+  font-size: 150px;
+  text-align: center;
+  /* font-family: 'Cookie', cursive;  */
+  /* font-family: 'Permanent Marker', cursive; */
+  font-family: 'Merienda', cursive;
+  color: rgb(71, 171, 218);
+}
+.midtitle2 {
+  margin-top: -80px;
+  font-size: 50px;
+  text-align: center;
+  /* font-family: 'Cookie', cursive;  */
+  /* font-family: 'Permanent Marker', cursive; */
+  font-family: 'Merienda', cursive;
+  color: rgb(71, 171, 218);
+
+}
+.middesc {
+  font-size: x-large;
+  text-align: center;
+  margin: 50px;
+}
+.landingImg {
+  /* margin: 0; */
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+
+ 
+}
+.navbar {
+  background-color:rgb(231, 154, 11);
+}
+
+
+.listCard {
+  width: 500px;
+  margin: 10px;
+}
+
+.cardImg {
+  width: 100%;
+  height: 100%;
+}
+
+.itemTitle, .itemPrice {
+  font-size: 20px;
   
-  code {
-    font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-      monospace;
-  }
-  .hero-body{
-    height: 300px;
-    background-color: rgb(24, 24, 109);
-    text-align: center;
-    color: white;
-  }
-  .title {
-    font-size: 150px;
-    color: white;
-  }
-  .subtitle {
-    font-size: 50px;
-    color: white;
-  }
-  .midtitle {
-    font-size: 50px;
-    text-align: center;
-  }
-  .middesc {
-    font-size: x-large;
-    text-align: center;
-    margin: 50px;
-  }
-  .landImg {
-    margin: 0;
-    width: 200px;
-    height: 200px;
-   
-  }
-  .navbar {
-    background-color:rgb(231, 154, 11);
-  }
+}
 
-
-  .listCard {
-    width: 500px;
-    margin: 10px;
-  }
-
-  .cardImg {
-    width: 100%;
-    height: 100%;
-  }
-
-  .itemTitle, .itemPrice {
-    font-size: 20px;
-    
-  }
-
-  .inputbox {
-    width: 500px;
-    height: 40px;
-  }
-  .loginContent {
-      position: relative;
-      height: auto;
-      width: 420px;
-      padding: 10px;
-      border-radius: 15px;
-      background-color: rgb(231, 154, 11);
-      margin-top: 5rem;
-      margin-bottom: 5rem;
-      border-color: #d2b57f;
-      border-style: solid;
-      box-shadow: 0 3px 6px #999, 0 3px 6px #999;
-      color: #d2b57f;
-  }
-  .signupContent {
+.inputbox {
+  width: 500px;
+  height: 40px;
+}
+.loginContent {
     position: relative;
     height: auto;
-    width: 620px;
+    width: 420px;
     padding: 10px;
     border-radius: 15px;
     background-color: rgb(231, 154, 11);
@@ -92,103 +94,117 @@ body {
     box-shadow: 0 3px 6px #999, 0 3px 6px #999;
     color: #d2b57f;
 }
+.signupContent {
+  position: relative;
+  height: auto;
+  width: 620px;
+  padding: 10px;
+  border-radius: 15px;
+  background-color: rgb(231, 154, 11);
+  margin-top: 5rem;
+  margin-bottom: 5rem;
+  border-color: #d2b57f;
+  border-style: solid;
+  box-shadow: 0 3px 6px #999, 0 3px 6px #999;
+  color: #d2b57f;
+}
 
 .awssld__container {
-  padding: 200px !important;
+padding: 200px !important;
 }
 
 /* Sell */
 
 .inputTitle, .inputPrice, .inputDesc {
-  font-size: 25px;
-  width: 300px;
+font-size: 25px;
+width: 300px;
 }
 .headingTitle, .headingPrice, .headingDesc {
-  font-size: 25px;
-  font-family: Georgia, 'Times New Roman', Times, serif;
-  color: white;
+font-size: 25px;
+font-family: Georgia, 'Times New Roman', Times, serif;
+color: white;
 }
 .inputDesc {
-  width: 300px;
-  height: 100px;;
-  font-weight: 25px;
-  
+width: 300px;
+height: 100px;;
+font-weight: 25px;
+
 }
-/* TextArea {
-  font-size: 20px;
-} */
-
-/* .sellContent {
-  margin: 50px;
-  border-radius: 30%;
-  
-} */
-
-
+.tag:not(body).is-black {
+margin-top: -20px !important;
+font-size: 20px;
+}
+.content.is-large {
+color: black;
+text-align: center;
+}
+.list-overflow-container li a {
+color: black !important;
+}
 .mySection {
-  background-color: #F93122;
-  color: white;
-  border: 1px solid white;
+background-color: #F93122;
+color: white;
+border: 1px solid white;
 }
 
 .myHero {
-  padding: 50px 0 50px 75px;
+padding: 50px 0 50px 75px;
 }
 
 .myHero .hr {
-  display: inline-block;
-  width: 150px;
-  height: 15px;
-  background: white;
-  border-radius: 20px;
-  margin-bottom: 15px;
+display: inline-block;
+width: 150px;
+height: 15px;
+background: white;
+border-radius: 20px;
+margin-bottom: 15px;
 }
 
 .myHero h1 {
-  font-size: 30px
+font-size: 30px
 }
 
 @media(max-width: 768px) {
-  .myHero {
-    padding: 50px !important;
-  }
+.myHero {
+  padding: 50px !important;
+}
 }
 .listBtn {
-  width: 300px;
-  color: aqua;
+width: 300px;
+color: aqua;
 }
-  .facebook{
-    color:white;
-    background-color: #4267B2;
+.facebook{
+  color:white;
+  background-color: #4267B2;
 }
 
 .tweet{
-    background-color: #55acee;
-    color: white;
+  background-color: #55acee;
+  color: white;
 }
 
 .email{
-    background-color: grey;
-    color: white;
+  background-color: grey;
+  color: white;
 }
 .center{
-  text-align: center;
+text-align: center;
 }
 #detailPrice{
-  font-size: 50px;
+font-size: 50px;
 }
 #detailTitle{
-  font-size: 30px;
+font-size: 30px;
 }
 #detailUsername{
-  text-align:left;
-  margin-left:10px;
+text-align:left;
+margin-left:10px;
 }
 .placeBid{
-  background-color: blue;
-  color: white;
-  padding: 10px;
-  cursor:pointer;
-  font-size: 30px;
+background-color: blue;
+color: white;
+padding: 10px;
+cursor:pointer;
+font-size: 30px;
 
 }
