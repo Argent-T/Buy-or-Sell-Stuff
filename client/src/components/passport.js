@@ -1,9 +1,9 @@
 import React, { Component } from 'react'
 import axios from 'axios'
 import { Route, Link } from 'react-router-dom'
-import './App.css'
+// import './App.css'
 import LoginForm from './Login/LoginForm'
-import SignupForm from './SignupForm'
+import SignupForm from './Signup'
 import Header from './Header'
 import Home from './Home'
 
