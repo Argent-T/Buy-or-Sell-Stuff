@@ -96,7 +96,7 @@ function Buy() {
                 />
                             <List>
                 <div className="columns is-multiline">
-                    {listings.map(listing => (
+                    {results.map(listing => (
                         <div className="column is-narrow is-one-quarter-desktop is-half-tablet">
                             <ListItem key={listing._id}>
                                 <Link to={"/listings/" + listing._id}>
