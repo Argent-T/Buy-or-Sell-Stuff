@@ -9,9 +9,9 @@ const mongoose = require("mongoose");
 const routes = require("./routes");
 const bodyParser = require('body-parser')
 const morgan = require('morgan')
-const session = require('express-session')
-const MongoStore = require('connect-mongo')(session)
-const dbConnection = require('./models/db') // loads our connection to the mongo database
+// const session = require('express-session')
+// const MongoStore = require('connect-mongo')(session)
+// const dbConnection = require('./models/db') // loads our connection to the mongo database
 const passport = require('./passport')
 const app = express()
 const PORT = process.env.PORT || 3001;
@@ -23,15 +23,15 @@ app.use(
 	})
 )
 
-app.use(bodyParser.json())
-app.use(
-	session({
-		secret: process.env.APP_SECRET || 'this is the default passphrase',
-		store: new MongoStore({ mongooseConnection: dbConnection }),
-		resave: false,
-		saveUninitialized: false
-	})
-)
+// app.use(bodyParser.json())
+// app.use(
+// 	session({
+// 		secret: process.env.APP_SECRET || 'this is the default passphrase',
+// 		store: new MongoStore({ mongooseConnection: dbConnection }),
+// 		resave: false,
+// 		saveUninitialized: false
+// 	})
+// )
 
 // ===== Passport ====
 app.use(passport.initialize())
@@ -44,20 +44,20 @@ app.use(express.json());
 
 // Serve up static assets (usually on heroku)
 
-if (process.env.NODE_ENV === 'production') {
-	const path = require('path')
-	console.log('YOU ARE IN THE PRODUCTION ENV')
-	app.use('/static', express.static(path.join(__dirname, '..client/build/static')))
-	app.get('/', (req, res) => {
-		res.sendFile(path.join(__dirname, './client/build'))
-	})
-}
+// if (process.env.NODE_ENV === 'production') {
+// 	const path = require('path')
+// 	console.log('YOU ARE IN THE PRODUCTION ENV')
+// 	app.use('/static', express.static(path.join(__dirname, '..client/build/static')))
+// 	app.get('/', (req, res) => {
+// 		res.sendFile(path.join(__dirname, './client/build'))
+// 	})
+// }
 
 /* Express app ROUTING */
-app.use('/auth', require('./auth'))
+// app.use('/auth', require('./auth'))
 // Add routes, both API and view
 
-// app.use(routes);
+app.use(routes);
 
 // ====== Error handler ====
 app.use(function(err, req, res, next) {
@@ -67,8 +67,8 @@ app.use(function(err, req, res, next) {
 })
 
 // Connect to the Mongo DB
-// mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/boss",
-// { useUnifiedTopology: true, useNewUrlParser: true, useCreateIndex: true });
+mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/boss",
+{ useUnifiedTopology: true, useNewUrlParser: true, useCreateIndex: true });
 
 // Start the API server
 app.listen(PORT, function() {
