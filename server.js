@@ -4,10 +4,26 @@ const routes = require("./routes");
 const app = express();
 const bodyParser = require('body-parser');
 const PORT = process.env.PORT || 3001;
+const session = require("express-session");
+
+
+var passport = require("./server/passport.js");
 
 app.use(express.urlencoded({ extended: true }));
 app.use(bodyParser({limit: "50mb"}))
 app.use(express.json());
+app.use(
+  session({
+    secret: "secretpassword",
+    resave: true,
+    saveUninitialized: false
+  })
+);
+
+// Pass the passport middleware
+app.use(passport.initialize());
+app.use(passport.session());
+
 
 // Serve up static assets (usually on heroku)
 if (process.env.NODE_ENV === "production") {

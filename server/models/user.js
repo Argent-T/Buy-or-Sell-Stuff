@@ -13,6 +13,9 @@ const UserSchema = new mongoose.Schema({
     providerID: String,
     jwtToken: String
 });
+UserSchema.methods.validPassword = function(password) {
+    return bcrypt.compareSync(password, this.password);
+  };
 
 // Compare the passed password with the value in the database. A model method.
 UserSchema.methods.comparePassword = function comparePassword(password, callback) {
