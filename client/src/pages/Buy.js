@@ -4,21 +4,71 @@ import { List, ListItem } from "../components/List";
 import DeleteBtn from "../components/DeleteBtn";
 import { Link } from "react-router-dom";
 import Navbar from "../components/Navbar";
-// import { FaGratipay } from "react-icons/fa";
-
+import SearchForm from "../components/SearchForm"
+import {Select} from "../components/Form"
 
 function Buy() {
     // Setting our component's initial state
     const [listings, setListings] = useState([]);
+    const [results, setResults] = useState([]);
+    const [search, setSearch] = useState("");
+    const [category, setCategory] = useState("");
+    const categories = ["Select a Category","Clothes","Cars","Sports","Books","Computers", "Electronics","Toys","Other"]
 
     // Load all books and store them with setBooks
     useEffect(() => {
         loadListings();
+        
     }, []);
+
+    // SEARCH BAR FUNCTION/////////////////
+    useEffect(() =>{
+
+        if(search == ""){
+            setResults(listings)
+            console.log("test")
+        }
+        else{
+            var text = search.toLocaleLowerCase();
+            var filtered = results.filter(function (data){
+                return data.title.toLowerCase().includes(text)
+            });
+            setResults(filtered);
+        }
+       
+    },[search])
+    ////////////////////////////////////////////////
+
+
+    useEffect(()=>{
+        if(category == "Select a Category"){
+            console.log(listings)
+            setResults(listings)
+        }
+        else{
+            var cat = category
+            var filtered = listings.filter(function(data){
+                console.log(data)
+                return data.category.includes(cat)
+            });
+            setResults(filtered)
+        }
+      
+    }, [category])
+
+    const handleInputChange = event => {
+        setSearch(event.target.value);
+    };
+    const categorySearch = event => {
+        setCategory(event.target.value);
+    }
 
     function loadListings() {
         API.getListings()
-            .then(res => setListings(res.data))
+            .then(res => {
+                setListings(res.data)
+                setResults(res.data)
+            })
             .catch(err => console.log(err));
     }
 
@@ -34,9 +84,19 @@ function Buy() {
             <div className="content is-large">
                 <h1>What do we want to say here?</h1>
             </div>
-            <List>
+
+            <SearchForm
+             handleInputChange={handleInputChange}
+            />
+             <Select 
+                id="category"
+                name = "category"
+                onChange = {categorySearch}
+                categories = {categories}
+                />
+                            <List>
                 <div className="columns is-multiline">
-                    {listings.map(listing => (
+                    {results.map(listing => (
                         <div className="column is-narrow is-one-quarter-desktop is-half-tablet">
                             <ListItem key={listing._id}>
                                 <Link to={"/listings/" + listing._id}>
@@ -65,6 +125,7 @@ function Buy() {
                     ))}
                 </div>
             </List>
+
         </>
     );
 }
