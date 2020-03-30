@@ -25,3 +25,15 @@ export function FormBtn(props) {
     </button>
   );
 }
+
+export function Select(props){
+  return(
+    <div>
+    <select {...props}>
+      {props.categories.map(result =>(
+        <option key = {result} value = {result}>{result}</option>
+      ))}
+    </select>
+    </div>
+  )
+}

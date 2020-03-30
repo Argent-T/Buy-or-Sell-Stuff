@@ -84,7 +84,7 @@ function Sell() {
 
 
   return (
-    <>
+    <div>
       <Navbar />
       <section className="mySection">
         <div className="columns is-vcentered">
@@ -143,7 +143,7 @@ function Sell() {
           </div>
         </div>
       </section>
-    </>
+      </div>
   );
 }
 

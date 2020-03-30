@@ -32,7 +32,7 @@ function Landing() {
           .catch(err => console.log(err));
   }
   return (
-    <>
+    <div>
       <section className="hero">
         <img className="landingImg" src="/images/Best-sites-to-sell-stuff-online.jpg" />
        </section>
@@ -81,7 +81,7 @@ function Landing() {
                 </div>
             </List>
 
-    </>
+            </div>
   );
 }
 

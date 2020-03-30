@@ -79,7 +79,7 @@ function Buy() {
             .catch(err => console.log(err));
     }
     return (
-        <>
+        <div>
             <Navbar />
             <div className="content is-large">
                 <h1>What do we want to say here?</h1>
@@ -126,7 +126,7 @@ function Buy() {
                 </div>
             </List>
 
-        </>
+            </div>
     );
 }
 
