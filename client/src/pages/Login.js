@@ -1,8 +1,37 @@
-import React from 'react';
+import React, { Component } from 'react'
+import axios from 'axios'
 import Navbar from '../components/Navbar';
 
-function Login(){
-    return(
+class Login extends Component {
+
+    constructor() {
+		super()
+		this.state = {
+			email: '',
+			password: '',
+			redirectTo: null
+		}
+		// this.googleSignin = this.googleSignin.bind(this)
+		this.handleSubmit = this.handleSubmit.bind(this)
+		this.handleChange = this.handleChange.bind(this)
+	}
+
+	handleChange(event) {
+		this.setState({
+			[event.target.name]: event.target.value
+		})
+	}
+
+	handleSubmit(event) {
+		event.preventDefault()
+		console.log('handleSubmit')
+		this.props.passport(this.state.email, this.state.password)
+		this.setState({
+			redirectTo: '/'
+		})
+	}
+    render (){
+        return (
         <>
         <Navbar />
       {/* <img src="/images/Best-sites-to-sell-stuff-online.jpg" /> */}
@@ -12,25 +41,37 @@ function Login(){
         <hr />
         <div className="field">
             <p class="control">
-                <input className="input inputbox" type="email" placeholder="Email"/>
+                <input className="input inputbox" 
+                type="email" 
+                placeholder="Email"
+                name="email"
+                value={this.state.email}
+				onChange={this.handleChange}
+                />
             </p>
          </div>
             <div className="field">
                 <p className="control">
-                    <input className="input inputbox" type="password" placeholder="Password"/>
+                    <input className="input inputbox" 
+                    type="password" 
+                    placeholder="Password"
+                    name="password"
+                    value={this.state.password}
+					onChange={this.handleChange}
+                    />
                 </p>
             </div>
                 <div className="field">
                     <p className="control">
                         <button className="button is-link">
-                            <strong className="loginbtn">Submit</strong>
+                            <strong onClick={this.handleSubmit} className="loginbtn">Submit</strong>
                         </button>
                     </p>
                 </div>
     </div>
 
         </>
-    )
+        )
+    }
 }
-
 export default Login;

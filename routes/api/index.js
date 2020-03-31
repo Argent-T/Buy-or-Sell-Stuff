@@ -20,7 +20,7 @@ router.post('/signup2', (req, res) => {
         if (err) 
         return res.status(500).end();
         console.log("working")
-        res.redirect('/api/login2')
+        res.redirect('/')
 
 
     });
