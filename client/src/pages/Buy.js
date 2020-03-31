@@ -100,7 +100,7 @@ function Buy() {
                         <div className="column is-narrow is-one-quarter-desktop is-half-tablet">
                             <ListItem key={listing._id}>
                                 <Link to={"/listings/" + listing._id}>
-                                    <h1 className="content is-large "><strong>{listing.title}</strong></h1>
+                                    <h1 className="content is-large cardtitle"><strong>{listing.title}</strong></h1>
                                     <div className="card">
                                         <div className="card-image">
                                             <figure className="image is-3by2">
