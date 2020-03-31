@@ -36,7 +36,14 @@ function Detail(props) {
             alert("you must submit a higher bid")
         }
         else{
-           
+            
+           console.log({
+                ...listing,
+               topBid: val 
+            })
+                   
+
+           API.updateListing(id, {...listing, topBid: val})
             
         }
         // bid.classList.remove("is-active")
@@ -114,7 +121,7 @@ function Detail(props) {
                             <span className="button facebook" data-href="https://developers.facebook.com/docs/plugins/" data-layout="button"
                                 data-size="large"><a target="_blank"
                                     href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&amp;src=sdkpreparse"
-                                    class="facebook">
+                                    className="facebook">
                                     <span className="icon"><i className="fab fa-facebook-f"></i></span>
                                     <span>Share</span>
                                 </a>
@@ -122,7 +129,7 @@ function Detail(props) {
                             {/* <!-- twitter --> */}
                             <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" target="_blank" className="button tweet" data-size="large"
                                 data-show-count="false">
-                                <span class="icon"><i class="fab fa-twitter"></i></span>
+                                <span className="icon"><i className="fab fa-twitter"></i></span>
                                 <span>Tweet</span>
                             </a>
                             {/* <!-- email --> */}

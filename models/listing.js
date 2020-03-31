@@ -30,6 +30,9 @@ const listingSchema = new Schema({
     },
   topBid:{
     type: Number
+  },
+  topBidUser:{
+    type: String
   }
 });
 

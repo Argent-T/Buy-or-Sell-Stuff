@@ -73,7 +73,10 @@ function Sell() {
             title: formObject.title,
             price: formObject.price,
             description: formObject.description,
-            bidDate: formObject.bidDate
+            bidDate: formObject.bidDate,
+            topBid: formObject.price,
+            topBidUser: " "
+
           })
             .then(res => loadListings())
             .catch(err => console.log(err));

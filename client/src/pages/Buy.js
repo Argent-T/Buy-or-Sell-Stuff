@@ -24,7 +24,7 @@ function Buy() {
     // SEARCH BAR FUNCTION/////////////////
     useEffect(() =>{
 
-        if(search == ""){
+        if(search === ""){
             setResults(listings)
             console.log("test")
         }
@@ -41,7 +41,7 @@ function Buy() {
 
 
     useEffect(()=>{
-        if(category == "Select a Category"){
+        if(category === "Select a Category"){
             console.log(listings)
             setResults(listings)
         }
