@@ -5,7 +5,6 @@ import Navbar from "../components/Navbar";
 
 function Detail(props) {
     const [listing, setListing] = useState({})
-    const [bidvalue, setBidValue] = useState()
     // When this component mounts, grab the book with the _id of props.match.params.id
     // e.g. localhost:3000/books/599dcb67f0f16317844583fc
     const { id } = useParams()
@@ -41,27 +40,43 @@ function Detail(props) {
                 ...listing,
                topBid: val 
             })
-                   
-
-           API.updateListing(id, {...listing, topBid: val})
+            API.updateListing(id, {...listing, topBid: val})
+            setListing({
+                ...listing,
+               topBid: val 
+            })
             
         }
-        // bid.classList.remove("is-active")
+        bid.classList.remove("is-active")
     }
 /////////////////////////////////////////////////////////////
 
+//DISPLAY BIDDING INFORMATION///////////////////////////////
     function bidDate(){
         if(listing.bidDate === undefined){
             return
         }
         else{
-            var d = listing.bidDate;
-           var date = d.substring(0,10);
-            console.log(date);
-            return ("Auction End Date: " + date);
-        }
-        
+            const i = listing.bidDate.substring(0,10).split('-');
+               
+            return (`Auction End Date: ${i[1]}-${i[2]}-${i[0]}`);
+        }   
     }
+    function listingDate(){
+        if(listing.date === undefined){
+            return
+        }
+        else{
+            const i = listing.date.substring(0,10).split('-');
+               
+            return (`${i[1]}-${i[2]}-${i[0]}`);
+        }   
+    }
+    function remainingTime(){
+
+    }
+
+/////////////////////////////////////////////////
 
     return (
         <>
@@ -75,7 +90,7 @@ function Detail(props) {
                     </h1>
 
                     <h1 id="detailPrice">
-                        ${listing.price}
+                        ${listing.topBid}
                     </h1>
                     <h1 id="detailDescription">
                         {listing.description}
@@ -87,7 +102,9 @@ function Detail(props) {
                             <div className="center">Category: {listing.category}</div>
                             <div id="detailUsername center">Listing by: "UserNameHere"</div>
                             <div id="detailUsername center">Current Bid by: "UserNameHere"</div>
+                        <div id="postDate">Date Listed: {listingDate()}</div>
                         <div id="bidDate">{bidDate()}</div>
+                        <div id="remainingTime">{remainingTime()}</div>
                         </div>
                         <div className="column is-half">
                             <div className="modal">
