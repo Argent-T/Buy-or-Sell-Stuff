@@ -8,7 +8,12 @@ const UserSchema = new mongoose.Schema({
         index: { unique: true }
     },
     password: String,
-    name: String,
+    first: String,
+    last: String,
+    address: String,
+    city: String,
+    state: String,
+    zip: String,
     provider: String,
     providerID: String,
     jwtToken: String

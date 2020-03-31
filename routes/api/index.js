@@ -10,15 +10,17 @@ router.use("/listings", listingRoutes);
 
 router.post('/signup2', (req, res) => {
     console.log(req.body);
+    console.log("api")
     var newUser = new User({
         email: req.body.email,
         password: req.body.password
     });
+    console.log("still")
     newUser.save((err) => {
         if (err) 
         return res.status(500).end();
         console.log("working")
-        res.redirect('/login2')
+        res.redirect('/api/login2')
 
 
     });
