@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import axios from 'axios'
-import { Redirect } from 'react-router-dom'
-import Navbar from '../components/Navbar';
+import Navbar from "../components/Navbar";
 
 class SignUp extends Component {
 	constructor() {
@@ -26,7 +25,7 @@ class SignUp extends Component {
 		event.preventDefault()
 
 		//request to server to add a new username/password
-		axios.post('/user/', {
+		axios.post('/api/user/', {
 			username: this.state.username,
 			password: this.state.password
 		})
@@ -50,6 +49,8 @@ class SignUp extends Component {
 
 render() {
 	return (
+		<>
+		<Navbar></Navbar>
 		<div className="SignupForm">
 			<h4>Sign up</h4>
 			<form className="form-horizontal">
@@ -92,7 +93,7 @@ render() {
 				</div>
 			</form>
 		</div>
-
+</>
 	)
 }
 }
