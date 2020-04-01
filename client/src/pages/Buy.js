@@ -89,7 +89,7 @@ function Buy() {
                 <h1>What do we want to say here?</h1>
             </div>
 
-            <SearchForm className="itemSearch"
+            <SearchForm
              handleInputChange={handleInputChange}
             />
              <Select 
@@ -104,15 +104,15 @@ function Buy() {
                         <div className="column is-narrow is-one-quarter-desktop is-half-tablet">
                             <ListItem key={listing._id}>
                                 <Link to={"/listings/" + listing._id}>
-                                    <h1 className="content is-large cardtitle"><strong>{listing.title}</strong></h1>
+                                    <h1 className="content is-large "><strong>{listing.title}</strong></h1>
                                     <div className="card">
                                         <div className="card-image">
                                             <figure className="image is-3by2">
                                                 <img src={(require = listing.img)} alt="Placeholder image" />
                                             </figure>
-                                            <div className="card-content is-overlay">
+                                            {/* <div className="card-content is-overlay">
                                                 <span className="tag is-black itemName">{listing.title}</span>
-                                            </div>
+                                            </div> */}
                                         </div>
                                         <footer className="card-footer">
                                             <a className="card-footer-item">
