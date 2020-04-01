@@ -8,6 +8,7 @@ function Sell() {
   // Setting our component's initial state
   const [listings, setListings] = useState([])
   const [formObject, setFormObject] = useState({})
+  const [prevImg, setPrevImg] = useState("")
 
   const categories = ["Select a Category", "Clothes", "Cars", "Sports", "Books", "Computers", "Electronics", "Toys", "Other"]
   // Load all books and store them with setBooks
@@ -28,7 +29,19 @@ function Sell() {
   // Handles updating component state when the user types into the input field
   function handleInputChange(event) {
     const { name, value } = event.target;
+    console.log(name, value)
     setFormObject({ ...formObject, [name]: value })
+    if (name == "img") {
+      var file = document.querySelector('#file').files[0]
+      var file = document.querySelector('#file').files[0]
+      console.log(file)
+      encodeImageFileAsURL(file)
+        .then(data => {
+          setPrevImg(data)
+        })
+
+      console.log(file)
+    }
   };
 
 
@@ -92,7 +105,8 @@ function Sell() {
           <div className="column is-5-tablet is-5-desktop">
 
             <figure className="image is4by3">
-              <img className="sellImg" src="/images/sell-stuff-online.jpg" />
+              <p>{formObject.title}</p>
+              <img className="sellImg" src={prevImg}/>
             </figure>
           </div>
 
