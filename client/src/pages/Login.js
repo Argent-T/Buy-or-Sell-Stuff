@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import axios from 'axios'
 import Navbar from '../components/Navbar';
+// import passport from '../../../server/passport'
 
 class Login extends Component {
 
@@ -25,7 +26,7 @@ class Login extends Component {
 	handleSubmit(event) {
 		event.preventDefault()
 		console.log('handleSubmit')
-		this.props.passport(this.state.email, this.state.password)
+		this.props.LocalStrategy(this.state.email, this.state.password)
 		this.setState({
 			redirectTo: '/'
 		})
