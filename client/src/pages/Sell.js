@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 import API from "../utils/API";
 import { Input, TextArea, FormBtn, Select } from "../components/Form";
 import Navbar from "../components/Navbar";
+const fs = require('fs');
+const AWS = require('aws-sdk');
 
 
 function Sell() {
@@ -27,6 +29,48 @@ function Sell() {
       .catch(err => console.log(err));
   };
 
+
+//AWS image host///////////////////////////////////////////////////////////
+const ID = 'AKIAI7YFZTWY2QSKVKLQ';
+const SECRET = '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';
+const s3 = new AWS.S3({
+  accessKeyId: ID,
+  secretAccessKey: SECRET
+});
+
+function testimg(event){
+  event.preventDefault();
+// The name of the bucket that you have created
+const BUCKET_NAME = 'bossproject';
+// Read content from the file
+const file = document.querySelector('#file').files[0]
+const fileName = file.name
+
+console.log(file);
+
+
+var upload = new AWS.S3.ManagedUpload({
+  params: {
+    Bucket: BUCKET_NAME,
+    Key: fileName,
+    Body: file,
+    ACL: "public-read"
+  }
+});
+
+var promise = upload.promise();
+promise.then(
+  function(data){
+    alert("uploaded")
+  },
+  function(err) {
+    return alert("There was an error uploading your photo: ", err.message);
+  }
+);
+
+
+}
+//////////////////////////////////////////////////////////////////
 
   // Handles updating component state when the user types into the input field
   function handleInputChange(event) {
@@ -169,6 +213,10 @@ useEffect(()=>{
                 >
                   Submit Listing
                </FormBtn>
+                {/* <FormBtn onClick={testimg}>
+                  testupload
+                </FormBtn> */}
+
               </form>
             </div>
           </div>
@@ -181,6 +229,6 @@ useEffect(()=>{
       </section>
     </>
   );
-}
+} 
 
 export default Sell;
