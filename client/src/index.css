@@ -33,13 +33,8 @@ code {
   font-family: 'Merienda', cursive;
   color: rgb(71, 171, 218);
 }
-.contFill {
-  background-image: radial-gradient(white, rgb(236, 236, 156),  rgb(71, 171, 218));
-  width: 100%;
-}
 .midtitle2 {
   margin-top: -80px;
-  margin-bottom: -25px;;
   font-size: 50px;
   text-align: center;
   /* font-family: 'Cookie', cursive;  */
@@ -58,15 +53,9 @@ code {
   width: 100%;
   height: 100%;
   object-fit: cover;
+
  
 }
-.featured {
-  text-align: center;
-  font-size: 30px;
-  font-family: 'Merienda', cursive;
-
-}
-
 .navbar {
   background-color:rgb(231, 154, 11);
 }
@@ -80,14 +69,11 @@ code {
 .cardImg {
   width: 100%;
   height: 100%;
-  object-fit: contain;
 }
-.cardtitle {
-  text-transform: capitalize;
-}
+
 .itemTitle, .itemPrice {
   font-size: 20px;
-    
+  
 }
 
 .inputbox {
@@ -127,13 +113,6 @@ code {
 padding: 200px !important;
 }
 
-/* search form */
-.form-control {
- font-size: 10px;
- height: 30px;
- width: 200px;
-}
-/*  End Buy*/
 /* Sell */
 
 .inputTitle, .inputPrice, .inputDesc {
@@ -146,23 +125,8 @@ font-family: Georgia, 'Times New Roman', Times, serif;
 color: white;
 }
 .inputDesc {
-  width: 300px;
-  height: 100px;;
-  font-weight: 25px;
-  
-}
-.tag:not(body).is-black {
-  margin-top: -20px !important;
-  font-size: 20px;
-}
-.content.is-large {
-  color: black;
-  text-align: center;
-}
-.list-overflow-container li a {
-  color: black !important;
 width: 300px;
-/* height: 100px;; */
+height: 100px;;
 font-weight: 25px;
 
 }
@@ -182,55 +146,6 @@ background-color: #F93122;
 color: white;
 border: 1px solid white;
 }
-
-.upload-btn-wrapper {
-  position: relative;
-  overflow: hidden;
-  display: inline-block;
-}
-
-.upload-btn {
-  border: 2px solid gray;
-  color: gray;
-  background-color: white;
-  padding: 8px 20px;
-  border-radius: 8px;
-  font-size: 20px;
-  font-weight: bold;
-}
-
-.upload-btn-wrapper input[type=file] {
-  font-size: 100px;
-  position: absolute;
-  left: 0;
-  top: 0;
-  opacity: 0;
-}
-
-#category {
-  width: 300px;
-  font-size: 20px;
-}
-
-.sublist-btn {
-  border: 2px solid gray;
-  color: gray;
-  background-color: white;
-  padding: 8px 20px;
-  border-radius: 8px;
-  font-size: 20px;
-  font-weight: bold;
-
-}
-.sellImg {
-  width: 200px;
-  height: 500px;
-  border-radius: 50%;
-}
-.sellTitle {
-  text-align: center;
-}
-/* End Sell */
 
 .myHero {
 padding: 50px 0 50px 75px;
