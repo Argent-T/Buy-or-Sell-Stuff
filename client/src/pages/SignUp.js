@@ -8,7 +8,13 @@ class SignUp extends Component {
 		this.state = {
 			username: '',
 			password: '',
-			confirmPassword: '',
+			first: '',
+			last: '',
+			address: '',
+			city: '',
+			state: '',
+			zip: '',
+			email: ''
 
 		}
 		this.handleSubmit = this.handleSubmit.bind(this)
@@ -27,7 +33,14 @@ class SignUp extends Component {
 		//request to server to add a new username/password
 		axios.post('/api/user/', {
 			username: this.state.username,
-			password: this.state.password
+			password: this.state.password,
+			first: this.state.first,
+			last: this.state.last,
+			address: this.state.address,
+			city: this.state.city,
+			state: this.state.state,
+			zip: this.state.zip,
+			email: this.state.email
 		})
 			.then(response => {
 				console.log(response)
@@ -47,54 +60,189 @@ class SignUp extends Component {
 	}
 
 
-render() {
-	return (
-		<>
-		<Navbar></Navbar>
-		<div className="SignupForm">
-			<h4>Sign up</h4>
-			<form className="form-horizontal">
-				<div className="form-group">
-					<div className="col-1 col-ml-auto">
-						<label className="form-label" htmlFor="username">Username</label>
+	render() {
+		return (
+			<>
+				<Navbar></Navbar>
+				{/* <div className="SignupForm">
+					<h4>Sign up</h4>
+					<form className="form-horizontal">
+						<div className="form-group">
+							<div className="col-1 col-ml-auto">
+								<label className="form-label" htmlFor="username">Username</label>
+							</div>
+							<div className="col-3 col-mr-auto">
+								<input className="form-input"
+									type="text"
+									id="username"
+									name="username"
+									placeholder="Username"
+									value={this.state.username}
+									onChange={this.handleChange}
+								/>
+							</div>
+						</div>
+						<div className="form-group">
+							<div className="col-1 col-ml-auto">
+								<label className="form-label" htmlFor="password">Password: </label>
+							</div>
+							<div className="col-3 col-mr-auto">
+								<input className="form-input"
+									placeholder="password"
+									type="password"
+									name="password"
+									value={this.state.password}
+									onChange={this.handleChange}
+								/>
+							</div>
+						</div>
+						<div className="form-group ">
+							<div className="col-7"></div>
+							<button
+								className="btn btn-primary col-1 col-mr-auto"
+								onClick={this.handleSubmit}
+								type="submit"
+							>Sign up</button>
+						</div>
+					</form>
+				</div> */}
+
+
+				<div className="container signupContent">
+					<h1 className="content is-large">Sign Up</h1>
+					<hr />
+					<div className="field">
+					<div className="columns">
+							<div className="column">
+								<p class="control">
+									<input
+										className="input inputname"
+										type="text"
+										name="username"
+										placeholder="Username"
+										value={this.state.username}
+										onChange={this.handleChange}
+									/>
+								</p>
+							</div>
+						</div>
+						<div className="columns">
+							<div className="column">
+								<p class="control">
+									<input
+										className="input inputname"
+										type="text"
+										name="first"
+										placeholder="First Name"
+										value={this.state.first}
+										onChange={this.handleChange}
+									/>
+								</p>
+							</div>
+							<div className="column">
+								<p class="control">
+									<input
+										className="input inputname"
+										type="text"
+										name="last"
+										placeholder="Last Name"
+										value={this.state.last}
+										onChange={this.handleChange}
+									/>
+								</p>
+							</div>
+						</div>
 					</div>
-					<div className="col-3 col-mr-auto">
-						<input className="form-input"
-							type="text"
-							id="username"
-							name="username"
-							placeholder="Username"
-							value={this.state.username}
-							onChange={this.handleChange}
-						/>
+					<div className="field">
+						<p class="control">
+							<input
+								className="input inputname"
+								type="text"
+								name="address"
+								placeholder="Address"
+								value={this.state.address}
+								onChange={this.handleChange}
+							/>
+						</p>
+					</div>
+					<div className="field">
+						<div className="columns">
+							<div className="column">
+								<p class="control">
+									<input
+										className="input inputname"
+										type="text"
+										name="city"
+										placeholder="City"
+										value={this.state.city}
+										onChange={this.handleChange}
+									/>
+								</p>
+							</div>
+							<div className="column">
+								<p class="control">
+									<input
+										className="input inputname"
+										type="text"
+										name="state"
+										placeholder="State"
+										value={this.state.state}
+										onChange={this.handleChange}
+									/>
+								</p>
+							</div>
+							<div className="column">
+								<p class="control">
+									<input
+										className="input inputname"
+										type="text"
+										name="zip"
+										placeholder="Zip"
+										value={this.state.zip}
+										onChange={this.handleChange}
+									/>
+								</p>
+							</div>
+						</div>
+					</div>
+
+					<div className="field">
+						<p className="control">
+							<input
+								className="input inputbox"
+								type="email"
+								name="email"
+								placeholder="Email"
+								value={this.state.email}
+								onChange={this.handleChange}
+							/>
+						</p>
+					</div>
+
+					<div className="field">
+						<p className="control">
+							<input
+								className="input inputbox"
+								type="password"
+								name="password"
+								placeholder="Password"
+								value={this.state.password}
+								onChange={this.handleChange}
+							/>
+						</p>
+					</div>
+					<div className="field">
+						<p className="control">
+							<button onClick={this.handleSubmit} 
+									className="button is-link loginbtn">Submit
+							</button>
+							<span id="loginSignup">Already have an account <a href="/login" >login</a></span>
+						</p>
 					</div>
 				</div>
-				<div className="form-group">
-					<div className="col-1 col-ml-auto">
-						<label className="form-label" htmlFor="password">Password: </label>
-					</div>
-					<div className="col-3 col-mr-auto">
-						<input className="form-input"
-							placeholder="password"
-							type="password"
-							name="password"
-							value={this.state.password}
-							onChange={this.handleChange}
-						/>
-					</div>
-				</div>
-				<div className="form-group ">
-					<div className="col-7"></div>
-					<button
-						className="btn btn-primary col-1 col-mr-auto"
-						onClick={this.handleSubmit}
-						type="submit"
-					>Sign up</button>
-				</div>
-			</form>
-		</div>
-</>
-	)
-}
+
+			</>
+		)
+	}
 }
 export default SignUp;
