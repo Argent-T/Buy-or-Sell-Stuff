@@ -6,11 +6,21 @@ import Navbar from "../components/Navbar";
 
 function Sell() {
   // Setting our component's initial state
+<<<<<<< HEAD
   const [listings, setListings] = useState([])
   const [formObject, setFormObject] = useState({})
   const [prevImg, setPrevImg] = useState("")
 
   const categories = ["Select a Category", "Clothes", "Cars", "Sports", "Books", "Computers", "Electronics", "Toys", "Other"]
+=======
+  const [listings, setListings] = useState([]);
+  const [formObject, setFormObject] = useState({});
+  const [bidDate, setBidDate] = useState("");
+  const [bidOption, setBidOption]= useState("Sale")
+
+  const categories = ["Select a Category","Clothes","Cars","Sports","Books","Computers", "Electronics","Toys","Other"]
+  const bidOptions = ["Sale","Auction"];
+>>>>>>> e40ba98118daca83ece9a2217cbbc21b05a6f199
   // Load all books and store them with setBooks
   useEffect(() => {
     loadListings()
@@ -45,7 +55,7 @@ function Sell() {
   };
 
 
-
+// Converts image to base64 for storage/////////////////////////////
   function encodeImageFileAsURL(file) {
     return new Promise((res, rej) => {
 
@@ -61,9 +71,7 @@ function Sell() {
       }
     })
   }
-
-
-
+//////////////////////////////////////////////////
 
   function handleFormSubmit(event) {
 
@@ -71,6 +79,7 @@ function Sell() {
 
     if (formObject.title && formObject.price && formObject.description) {
 
+<<<<<<< HEAD
       if (formObject.category == "Select a Category") {
         alert("Please Select a Category.")
       }
@@ -90,9 +99,46 @@ function Sell() {
               .catch(err => console.log(err));
           })
         console.log("logged")
+=======
+      if(formObject.category === "Select a Category"){
+        alert("Please Select a Category.")
+      }
+      else{
+      var file = document.querySelector('#file').files[0]
+      console.log(file)
+      encodeImageFileAsURL(file)
+        .then(data => {
+          API.saveListing({
+            img: data,
+            category: formObject.category,
+            title: formObject.title,
+            price: formObject.price,
+            description: formObject.description,
+            bidDate: formObject.bidDate,
+            topBid: formObject.price,
+            topBidUser: " "
+
+          })
+            .then(res => loadListings())
+            .catch(err => console.log(err));
+        })
+        console.log("logged");
+>>>>>>> e40ba98118daca83ece9a2217cbbc21b05a6f199
       }
     }
   }
+
+  // Show or hide date selection/////////////////////
+useEffect(()=>{
+  var element = document.getElementById("bidDate");
+  if(bidOption === "Auction"){
+    element.style.display = "block"
+  }
+  else{
+  element.style.display = "none"}
+
+},[bidOption])
+/////////////////////////////////////////
 
 
 
@@ -112,7 +158,12 @@ function Sell() {
 
           <div className="column is-5-tablet is-5-desktop">
             <div className="myHero">
+<<<<<<< HEAD
               <form action="/upload/photo" enctype="multipart/form-data" method="POST">
+=======
+              <h1>What Are You Selling?</h1>
+              <form action="/upload/photo" encType="multipart/form-data" method="POST">
+>>>>>>> e40ba98118daca83ece9a2217cbbc21b05a6f199
                 <div className="hr"></div>
                 <h2 className="headingTitle">Enter The Item Name</h2>
                 <Input className="inputTitle"
@@ -151,8 +202,38 @@ function Sell() {
                   onChange={handleInputChange}
                   categories={categories}
                 />
+<<<<<<< HEAD
 
                 <button className="sublist-btn"
+=======
+                <Select 
+                id="category"
+                name = "category"
+                onChange = {handleInputChange}
+                categories = {categories}
+                />
+                 
+                 For Sale or Auction?
+                <Select 
+                id="bidOption"
+                name = "bidOption"
+                categories = {bidOptions}
+                onChange = {()=> setBidOption(document.querySelector("#bidOption").value)}
+                ></Select>
+                  
+                  
+                {/* date entry */}
+                <div id="bidDate">
+                  Select an end date
+                <Input 
+                  onChange={handleInputChange}
+                  name="bidDate"
+                  type= "date"
+                />
+                </div>
+
+                <FormBtn 
+>>>>>>> e40ba98118daca83ece9a2217cbbc21b05a6f199
                   disabled={!(formObject.title && formObject.price && formObject.description)}
                   onClick={handleFormSubmit}
                 >
@@ -161,6 +242,14 @@ function Sell() {
               </form>
             </div>
           </div>
+<<<<<<< HEAD
+=======
+          <div className="column is-7-tablet is-7-desktop">
+            <figure className="image is4by3">
+              <img src="/images/sell-stuff-online.jpg" alt="" />
+            </figure>
+          </div>
+>>>>>>> e40ba98118daca83ece9a2217cbbc21b05a6f199
         </div>
       </section>
     </>

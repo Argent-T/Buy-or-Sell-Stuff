@@ -5,7 +5,6 @@ import Navbar from "../components/Navbar";
 
 function Detail(props) {
     const [listing, setListing] = useState({})
-
     // When this component mounts, grab the book with the _id of props.match.params.id
     // e.g. localhost:3000/books/599dcb67f0f16317844583fc
     const { id } = useParams()
@@ -14,6 +13,9 @@ function Detail(props) {
             .then(res => setListing(res.data))
             .catch(err => console.log(err));
     }, [])
+
+
+
     const bid = document.querySelector(".modal")
 
     function placeBid() {
@@ -24,10 +26,57 @@ function Detail(props) {
     function closeModal(){
         bid.classList.remove("is-active")
     }
-
+// SUBMIT BID/////////////////////////////////////////////
     function submitBid(){
+        var val = document.getElementById("bid").value;
+        console.log(val)
+
+        if(val <= listing.price){
+            alert("you must submit a higher bid")
+        }
+        else{
+            
+           console.log({
+                ...listing,
+               topBid: val 
+            })
+            API.updateListing(id, {...listing, topBid: val})
+            setListing({
+                ...listing,
+               topBid: val 
+            })
+            
+        }
         bid.classList.remove("is-active")
     }
+/////////////////////////////////////////////////////////////
+
+//DISPLAY BIDDING INFORMATION///////////////////////////////
+    function bidDate(){
+        if(listing.bidDate === undefined){
+            return
+        }
+        else{
+            const i = listing.bidDate.substring(0,10).split('-');
+               
+            return (`Auction End Date: ${i[1]}-${i[2]}-${i[0]}`);
+        }   
+    }
+    function listingDate(){
+        if(listing.date === undefined){
+            return
+        }
+        else{
+            const i = listing.date.substring(0,10).split('-');
+               
+            return (`${i[1]}-${i[2]}-${i[0]}`);
+        }   
+    }
+    function remainingTime(){
+
+    }
+
+/////////////////////////////////////////////////
 
     return (
         <>
@@ -41,7 +90,7 @@ function Detail(props) {
                     </h1>
 
                     <h1 id="detailPrice">
-                        ${listing.price}
+                        ${listing.topBid}
                     </h1>
                     <h1 id="detailDescription">
                         {listing.description}
@@ -50,9 +99,12 @@ function Detail(props) {
                     <br></br>
                     <div className="columns">
                         <div className="column is-half">
-                            <div className="center">Category: "Category Here"</div>
+                            <div className="center">Category: {listing.category}</div>
                             <div id="detailUsername center">Listing by: "UserNameHere"</div>
                             <div id="detailUsername center">Current Bid by: "UserNameHere"</div>
+                        <div id="postDate">Date Listed: {listingDate()}</div>
+                        <div id="bidDate">{bidDate()}</div>
+                        <div id="remainingTime">{remainingTime()}</div>
                         </div>
                         <div className="column is-half">
                             <div className="modal">
@@ -64,7 +116,7 @@ function Detail(props) {
                                     </header>
                                     <section className="modal-card-body">
                                         <form>
-                                            <input placeholder="              $$$"></input>
+                                            <input id="bid" placeholder="$$$"></input>
                                         </form>
                                     </section>
                                     <footer className="modal-card-foot">
@@ -86,7 +138,7 @@ function Detail(props) {
                             <span className="button facebook" data-href="https://developers.facebook.com/docs/plugins/" data-layout="button"
                                 data-size="large"><a target="_blank"
                                     href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&amp;src=sdkpreparse"
-                                    class="facebook">
+                                    className="facebook">
                                     <span className="icon"><i className="fab fa-facebook-f"></i></span>
                                     <span>Share</span>
                                 </a>
@@ -94,7 +146,7 @@ function Detail(props) {
                             {/* <!-- twitter --> */}
                             <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" target="_blank" className="button tweet" data-size="large"
                                 data-show-count="false">
-                                <span class="icon"><i class="fab fa-twitter"></i></span>
+                                <span className="icon"><i className="fab fa-twitter"></i></span>
                                 <span>Tweet</span>
                             </a>
                             {/* <!-- email --> */}

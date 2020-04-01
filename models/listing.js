@@ -24,7 +24,16 @@ const listingSchema = new Schema({
   },
   date: { 
     type: Date, 
-    default: Date.now }
+    default: Date.now },
+    bidDate: {
+      type: Date
+    },
+  topBid:{
+    type: Number
+  },
+  topBidUser:{
+    type: String
+  }
 });
 
 const Listing = mongoose.model("Listing", listingSchema);
