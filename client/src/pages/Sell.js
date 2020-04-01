@@ -6,6 +6,13 @@ import Navbar from "../components/Navbar";
 
 function Sell() {
   // Setting our component's initial state
+<<<<<<< HEAD
+  const [listings, setListings] = useState([])
+  const [formObject, setFormObject] = useState({})
+  const [prevImg, setPrevImg] = useState("")
+
+  const categories = ["Select a Category", "Clothes", "Cars", "Sports", "Books", "Computers", "Electronics", "Toys", "Other"]
+=======
   const [listings, setListings] = useState([]);
   const [formObject, setFormObject] = useState({});
   const [bidDate, setBidDate] = useState("");
@@ -13,6 +20,7 @@ function Sell() {
 
   const categories = ["Select a Category","Clothes","Cars","Sports","Books","Computers", "Electronics","Toys","Other"]
   const bidOptions = ["Sale","Auction"];
+>>>>>>> e40ba98118daca83ece9a2217cbbc21b05a6f199
   // Load all books and store them with setBooks
   useEffect(() => {
     loadListings()
@@ -31,7 +39,19 @@ function Sell() {
   // Handles updating component state when the user types into the input field
   function handleInputChange(event) {
     const { name, value } = event.target;
+    console.log(name, value)
     setFormObject({ ...formObject, [name]: value })
+    if (name == "img") {
+      var file = document.querySelector('#file').files[0]
+      var file = document.querySelector('#file').files[0]
+      console.log(file)
+      encodeImageFileAsURL(file)
+        .then(data => {
+          setPrevImg(data)
+        })
+
+      console.log(file)
+    }
   };
 
 
@@ -56,9 +76,30 @@ function Sell() {
   function handleFormSubmit(event) {
 
     event.preventDefault();
-    
+
     if (formObject.title && formObject.price && formObject.description) {
 
+<<<<<<< HEAD
+      if (formObject.category == "Select a Category") {
+        alert("Please Select a Category.")
+      }
+      else {
+        var file = document.querySelector('#file').files[0]
+        console.log(file)
+        encodeImageFileAsURL(file)
+          .then(data => {
+            API.saveListing({
+              img: data,
+              category: formObject.category,
+              title: formObject.title,
+              price: formObject.price,
+              description: formObject.description
+            })
+              .then(res => loadListings())
+              .catch(err => console.log(err));
+          })
+        console.log("logged")
+=======
       if(formObject.category === "Select a Category"){
         alert("Please Select a Category.")
       }
@@ -82,6 +123,7 @@ function Sell() {
             .catch(err => console.log(err));
         })
         console.log("logged");
+>>>>>>> e40ba98118daca83ece9a2217cbbc21b05a6f199
       }
     }
   }
@@ -103,12 +145,25 @@ useEffect(()=>{
   return (
     <>
       <Navbar />
+      <h1 className="sellTitle">What Are You Selling?</h1>
       <section className="mySection">
         <div className="columns is-vcentered">
           <div className="column is-5-tablet is-5-desktop">
+
+            <figure className="image is4by3">
+              <p>{formObject.title}</p>
+              <img className="sellImg" src={prevImg}/>
+            </figure>
+          </div>
+
+          <div className="column is-5-tablet is-5-desktop">
             <div className="myHero">
+<<<<<<< HEAD
+              <form action="/upload/photo" enctype="multipart/form-data" method="POST">
+=======
               <h1>What Are You Selling?</h1>
               <form action="/upload/photo" encType="multipart/form-data" method="POST">
+>>>>>>> e40ba98118daca83ece9a2217cbbc21b05a6f199
                 <div className="hr"></div>
                 <h2 className="headingTitle">Enter The Item Name</h2>
                 <Input className="inputTitle"
@@ -125,18 +180,32 @@ useEffect(()=>{
                 />
                 <h2 className="headingDesc">Item Description</h2>
 
-                  <TextArea className="inputDesc"
-                    onChange={handleInputChange}
-                    name="description"
-                    placeholder="Description (required)"
-                  />
-                <Input className="chooseFile"
+                <TextArea className="inputDesc"
                   onChange={handleInputChange}
-                  id="file"
-                  type="file"
-                  name="img"
-                  accept="image/*"
+                  name="description"
+                  placeholder="Description (required)"
                 />
+
+                <div class="upload-btn-wrapper">
+                  <button className="upload-btn">Upload Image</button>
+                  <Input
+                    onChange={handleInputChange}
+                    id="file"
+                    type="file"
+                    name="img"
+                    accept="image/*"
+                  />
+                </div>
+                <Select
+                  id="category"
+                  name="category"
+                  onChange={handleInputChange}
+                  categories={categories}
+                />
+<<<<<<< HEAD
+
+                <button className="sublist-btn"
+=======
                 <Select 
                 id="category"
                 name = "category"
@@ -164,19 +233,23 @@ useEffect(()=>{
                 </div>
 
                 <FormBtn 
+>>>>>>> e40ba98118daca83ece9a2217cbbc21b05a6f199
                   disabled={!(formObject.title && formObject.price && formObject.description)}
                   onClick={handleFormSubmit}
                 >
                   Submit Listing
-               </FormBtn>
+               </button>
               </form>
             </div>
           </div>
+<<<<<<< HEAD
+=======
           <div className="column is-7-tablet is-7-desktop">
             <figure className="image is4by3">
               <img src="/images/sell-stuff-online.jpg" alt="" />
             </figure>
           </div>
+>>>>>>> e40ba98118daca83ece9a2217cbbc21b05a6f199
         </div>
       </section>
     </>
