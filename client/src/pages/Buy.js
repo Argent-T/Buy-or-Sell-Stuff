@@ -85,7 +85,7 @@ function Buy() {
                 <h1>What do we want to say here?</h1>
             </div>
 
-            <SearchForm
+            <SearchForm className="itemSearch"
              handleInputChange={handleInputChange}
             />
              <Select 
@@ -106,9 +106,9 @@ function Buy() {
                                             <figure className="image is-3by2">
                                                 <img src={(require = listing.img)} alt="Placeholder image" />
                                             </figure>
-                                            {/* <div className="card-content is-overlay">
+                                            <div className="card-content is-overlay">
                                                 <span className="tag is-black itemName">{listing.title}</span>
-                                            </div> */}
+                                            </div>
                                         </div>
                                         <footer className="card-footer">
                                             <a className="card-footer-item">
