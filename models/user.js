@@ -5,7 +5,7 @@ mongoose.promise = Promise
 
 // Define userSchema
 const userSchema = new Schema({
-
+	
 	username: {
 		type: String,
 		unique: false,
@@ -36,7 +36,8 @@ const userSchema = new Schema({
 	},
 	email: {
 		type: String,
-	}
+	},
+	listings: [{ type: Schema.Types.ObjectId, ref: 'Listing'}]
 
 })
 
