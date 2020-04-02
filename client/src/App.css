@@ -27,6 +27,10 @@
   .App-link {
     color: #61dafb;
   }
+
+  #pageContent {
+    min-height: calc(100vh - 60px);
+  }
   
   @keyframes App-logo-spin {
     from {

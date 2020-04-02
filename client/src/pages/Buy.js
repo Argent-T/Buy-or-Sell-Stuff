@@ -86,7 +86,7 @@ function Buy() {
         <>
             <Navbar />
             <div className="content is-large">
-                <h1>What do we want to say here?</h1>
+                <h1></h1>
             </div>
 
             <SearchForm
