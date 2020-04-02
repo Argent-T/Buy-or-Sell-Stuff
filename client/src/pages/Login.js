@@ -12,7 +12,7 @@ class LoginForm extends Component {
         }
         this.handleSubmit = this.handleSubmit.bind(this)
         this.handleChange = this.handleChange.bind(this)
-  
+
     }
 
     handleChange(event) {
@@ -47,7 +47,7 @@ class LoginForm extends Component {
             }).catch(error => {
                 console.log('login error: ')
                 console.log(error);
-                
+
             })
     }
 
@@ -57,14 +57,14 @@ class LoginForm extends Component {
         } else {
             return (
                 <div>
-                    <h4>Login</h4>
-                    <form className="form-horizontal">
-                        <div className="form-group">
-                            <div className="col-1 col-ml-auto">
-                                <label className="form-label" htmlFor="username">Username</label>
-                            </div>
-                            <div className="col-3 col-mr-auto">
-                                <input className="form-input"
+                    <div className="container loginContent">
+                        <label className="content is-large" htmlFor="username">
+                            <strong>Login</strong>
+                        </label>
+                        <hr />
+                        <div className="field">
+                            <p class="control">
+                            <input className="input inputbox"
                                     type="text"
                                     id="username"
                                     name="username"
@@ -72,32 +72,33 @@ class LoginForm extends Component {
                                     value={this.state.username}
                                     onChange={this.handleChange}
                                 />
-                            </div>
+                            </p>
                         </div>
-                        <div className="form-group">
-                            <div className="col-1 col-ml-auto">
-                                <label className="form-label" htmlFor="password">Password: </label>
-                            </div>
-                            <div className="col-3 col-mr-auto">
-                                <input className="form-input"
-                                    placeholder="password"
+                        <div className="field">
+                            <p className="control">
+                                <input className="input inputbox"
                                     type="password"
+                                    placeholder="Password"
                                     name="password"
                                     value={this.state.password}
                                     onChange={this.handleChange}
                                 />
-                            </div>
+                            </p>
                         </div>
-                        <div className="form-group ">
-                            <div className="col-7"></div>
-                            <button
-                                className="btn btn-primary col-1 col-mr-auto"
-                               
-                                onClick={this.handleSubmit}
-                                type="submit">Login</button>
+                        <div className="field">
+                            <p className="control">
+                                <button className="button is-link">
+                                    <strong 
+                                    onClick={this.handleSubmit} 
+                                    className="loginbtn">Login</strong>
+                                </button>
+                                <span id="loginSignup">Don't have an account <a href="/signup" >sign up</a></span>
+                            </p>
+                            
                         </div>
-                    </form>
+                    </div>
                 </div>
+
             )
         }
     }
