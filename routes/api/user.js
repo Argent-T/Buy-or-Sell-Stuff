@@ -6,7 +6,7 @@ const passport = require('../../passport')
 router.post('/', (req, res) => {
     console.log('user signup');
 
-    const { username, password } = req.body
+    const { username, password, first, last, address, city, state, zip, email } = req.body
     // ADD VALIDATION
     User.findOne({ username: username }, (err, user) => {
         if (err) {
@@ -19,7 +19,15 @@ router.post('/', (req, res) => {
         else {
             const newUser = new User({
                 username: username,
-                password: password
+                password: password,
+                first: first,
+                last: last,
+                address: address,
+                city: city,
+                state: state,
+                zip: zip,
+                email: email
+
             })
             newUser.save((err, savedUser) => {
                 if (err) return res.json(err)
@@ -56,13 +64,13 @@ router.get('/', (req, res, next) => {
     }
 })
 
-router.post('/logout', (req, res) => {
-    if (req.user) {
-        req.logout()
-        res.send({ msg: 'logging out' })
-    } else {
-        res.send({ msg: 'no user to log out' })
-    }
-})
+router.get('/logout', function(req, res){
+
+        console.log('=====Logout!=====')
+        console.log(req.body)
+        req.logout();
+        res.redirect("/");
+    } 
+)
 
 module.exports = router

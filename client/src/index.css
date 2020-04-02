@@ -119,7 +119,7 @@ code {
 .signupContent {
   position: relative;
   height: auto;
-  width: 620px;
+  width: 500px;
   padding: 10px;
   border-radius: 15px;
   background-color: rgb(231, 154, 11);
@@ -280,6 +280,10 @@ margin-bottom: 15px;
 .myHero h1 {
 font-size: 30px
 }
+#loginSignup{
+  color:white;
+  margin-left:110px;
+}
 
 .listBtn {
 width: 300px;
@@ -320,6 +324,7 @@ cursor:pointer;
 font-size: 30px;
 
 }
+
 
 @media(max-width: 768px) {
   .myHero {
