@@ -64,13 +64,13 @@ router.get('/', (req, res, next) => {
     }
 })
 
-router.post('/logout', (req, res) => {
-    if (req.user) {
-        req.logout()
-        res.send({ msg: 'logging out' })
-    } else {
-        res.send({ msg: 'no user to log out' })
-    }
-})
+router.get('/logout', function(req, res){
+
+        console.log('=====Logout!=====')
+        console.log(req.body)
+        req.logout();
+        res.redirect("/");
+    } 
+)
 
 module.exports = router
