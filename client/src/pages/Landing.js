@@ -36,18 +36,23 @@ function Landing() {
       <section className="hero">
         <img className="landingImg" src="/images/Best-sites-to-sell-stuff-online.jpg" />
        </section>
-      <Navbar />
+       <Navbar />
+
       <div className="contFill">
       <h1 className="content xx-large midtitle">BOSS</h1>
       <h2 className="content x-large midtitle2">Buy Or Sell Stuff</h2>
       
-      <p>
-          Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in
-          laying out print, graphic or web designs. The passage is attributed to
-          an unknown typesetter in the 15th century who is thought to have
-          scrambled parts of Cicero's De Finibus Bonorum et Malorum for use in a
-          type specimen book. It usually begins with
-        </p>
+      <p className="appMess"><strong>
+          This app allows you to Buy items that you are in need of or Sell things you no longer desire to have. 
+          </strong></p>
+          <p className="appMess"><strong>
+          Sign up today and become a member of BOSS.
+          </strong></p>
+          <p className="appMess"><strong>
+          Bid on an item or just choose to buy it at the asking price.
+          </strong></p>
+
+
 </div>
       {/* /////////////// */}
       {/* <div className="columns"> */}

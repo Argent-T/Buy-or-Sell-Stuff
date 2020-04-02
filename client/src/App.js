@@ -60,10 +60,12 @@ render(){
   return (
     <div className="App">
       {/* greet user if logged in: */}
-      {this.state.loggedIn &&
+        <div id="pageContent">
+        {this.state.loggedIn &&
           <p>Join the party, {this.state.username}!</p>
         }
         {/* Routes to different components */}
+
     <Router>
       <Route exact path="/" component = {Landing} />
       <Route exact path="/profile">
@@ -90,8 +92,10 @@ render(){
             />}
         />
       {/* include route with Id for specific item detail page */}
-      <Footer />
     </Router>
+    </div>
+    <Footer />
+
     </div>
   );
 }
