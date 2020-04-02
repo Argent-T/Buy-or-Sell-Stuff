@@ -80,6 +80,13 @@ render(){
       <Route exact path="/listings/:id">
             <Detail />
       </Route>
+      <Route
+          path="/logout"
+          render={() =>
+            <Login
+              updateUser={this.updateUser}
+            />}
+        />
       {/* include route with Id for specific item detail page */}
       <Footer />
     </Router>

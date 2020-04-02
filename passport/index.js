@@ -25,6 +25,10 @@ passport.deserializeUser((id, done) => {
 	)
 })
 
+passport.deserializeUser(function(obj, cb) {
+	cb(null, obj);
+  });
+
 //  Use Strategies 
 passport.use(LocalStrategy)
 
