@@ -10,11 +10,11 @@ function Sell() {
   const [listings, setListings] = useState([]);
   const [formObject, setFormObject] = useState({});
   const [bidDate, setBidDate] = useState("");
-  const [bidOption, setBidOption] = useState("");
+  const [bidOption, setBidOption] = useState("Sale");
   const [prevImg, setPrevImg] = useState("");
 
   const categories = ["Select a Category", "Clothes", "Cars", "Sports", "Books", "Computers", "Electronics", "Toys", "Other"]
-  const bidOptions = ["Select", "Sale", "Auction"];
+  const bidOptions = ["Sale", "Auction"];
   // Load all books and store them with setBooks
   // useEffect(() => {
   //   loadListings()
