@@ -117,7 +117,7 @@ else{
                 <Link  to="/login"><strong>Log in</strong></Link>
               </div>
               <div className="button is-light" id="logout">
-                <Link  to="/" onClick={()=>logout, ()=> setButton(1)}><strong>Log out</strong></Link>
+                <Link  to="/" onClick={logout}><strong>Log out</strong></Link>
               </div>
             </div>
           </div>
