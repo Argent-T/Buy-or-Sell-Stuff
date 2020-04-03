@@ -7,3 +7,9 @@ form.search {
     float: right;
     margin-top: 10px;
   }
+  .form-control {
+    border-color: rgb(231, 154, 11);
+    width: 90%;
+    height: 50px;
+    font-size: 50px;
+  }

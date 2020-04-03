@@ -85,41 +85,43 @@ function Buy() {
     return (
         <>
             <Navbar />
+            <div className="container-fluid">
             <div className="content is-large">
-                <h1></h1>
+                <h1 className="viewHeading">View Items</h1>
             </div>
+        <div className="columns">
+        <div className="column">
 
-            <SearchForm
+            <SearchForm 
              handleInputChange={handleInputChange}
             />
-             <Select 
+            </div>
+            <div className="column">
+
+             <Select className="buyCategory"
                 id="category"
                 name = "category"
                 onChange = {categorySearch}
                 categories = {categories}
                 />
+                </div>
+                </div>
                             <List>
                 <div className="columns is-multiline">
                     {results.map(listing => (
                         <div className="column is-narrow is-one-quarter-desktop is-half-tablet">
                             <ListItem key={listing._id}>
                                 <Link to={"/listings/" + listing._id}>
-                                    <h1 className="content is-large "><strong>{listing.title}</strong></h1>
-                                    <div className="card">
+                                    <h1 className="content card cardtitle">{listing.title}</h1>
+                                    <div className="card card-size">
                                         <div className="card-image">
                                             <figure className="image is-3by2">
                                                 <img src={(require = listing.img)} alt="Placeholder image" />
                                             </figure>
-                                            {/* <div className="card-content is-overlay">
-                                                <span className="tag is-black itemName">{listing.title}</span>
-                                            </div> */}
                                         </div>
                                         <footer className="card-footer">
-                                            <a className="card-footer-item">
-                                            <strong>BUY</strong></a>
-                                            <a className="card-footer-item">
-                                            <strong>BID</strong></a>
-
+                                            <a className="card-footer-item cardFooter">
+                                            <strong>${listing.price}</strong></a>
                                         </footer>
                                     </div>
                                 </Link>
@@ -129,7 +131,7 @@ function Buy() {
                     ))}
                 </div>
             </List>
-
+            </div>
         </>
     );
 }
