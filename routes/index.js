@@ -5,7 +5,7 @@ const apiRoutes = require("./api");
 // API Routes
 router.use("/api", apiRoutes);
 
-router.get("/logout", function(req, res) {
+router.post("/logout", function(req, res) {
   req.logout();
   res.redirect("/");
 });

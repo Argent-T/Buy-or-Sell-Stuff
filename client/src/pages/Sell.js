@@ -1,7 +1,8 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import API from "../utils/API";
 import { Input, TextArea, FormBtn, Select } from "../components/Form";
 import Navbar from "../components/Navbar";
+import UserContext from "../utils/UserContext";
 
 
 function Sell() {
@@ -15,9 +16,9 @@ function Sell() {
   const categories = ["Select a Category", "Clothes", "Cars", "Sports", "Books", "Computers", "Electronics", "Toys", "Other"]
   const bidOptions = ["Sale", "Auction"];
   // Load all books and store them with setBooks
-  useEffect(() => {
-    loadListings()
-  }, [])
+  // useEffect(() => {
+  //   loadListings()
+  // }, [])
 
 
   function loadListings() {
@@ -42,8 +43,8 @@ function Sell() {
     }
   };
 
+// Converts image to base64 for storage/////////////////////////////
 
-  // Converts image to base64 for storage/////////////////////////////
   function encodeImageFileAsURL(file) {
     return new Promise((res, rej) => {
 
@@ -107,7 +108,7 @@ function Sell() {
   }, [bidOption])
   /////////////////////////////////////////
 
-
+const user = useContext(UserContext);
 
   return (
     <>
@@ -116,7 +117,7 @@ function Sell() {
         <div className="columns is-vcentered">
           <div className="column is-6-tablet is-6-desktop">
             <div className="myHero">
-              <h1>What Are You Selling?</h1>
+  <h1>What Are You Selling? {}</h1>
               <form action="/upload/photo" encType="multipart/form-data" method="POST">
                 <div className="hr"></div>
                 <Select
