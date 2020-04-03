@@ -16,21 +16,30 @@ function Profile(props) {
             .catch(err => console.log(err));
     }, [])
 
+    function toggleFunction() {
+        var x = document.getElementById("toggle");
+        if (x.innerHTML === "Yes") {
+          x.innerHTML = "No";
+        } else {
+          x.innerHTML = "Yes";
+        }
+      }
+
     return (
         <>
             <Navbar />
             <br></br>
-            <h1 className="center is-size-2">"User Names Profile"{user.username}</h1>
+            <h1 className="center is-size-2"><strong>"Username's Profile"{user.username}</strong></h1>
             <br></br>
             <div className="column center is-half is-size-4">
-                Basic Information
+                <strong>Basic Information</strong>
             </div>
             <br></br>
-            <div className="columns">
+            <div className="columns profileCard">
                 <div className="column is-half">
                     <div className="card">
                         <div className="columns card-content">
-                            <p className="column is-half">Full Name</p><p className="column is-half">"NAME HERE"</p>
+                            <p className="column is-half">First Name</p><p className="column is-half">"NAME HERE"</p>
                         </div>
 
                     </div>
@@ -62,7 +71,7 @@ function Profile(props) {
                     </div>
                     <div className="card">
                         <div className="columns card-content">
-                            <p className="column is-half">Email Notifications</p><p className="column is-half" ><a>Yes</a></p>
+                            <p className="column is-half">Email Notifications</p><p className="column is-half" ><button id="toggle" onClick={toggleFunction}>Yes</button></p>
                         </div>
 
                     </div>
@@ -75,7 +84,7 @@ function Profile(props) {
                 </div>
             </div>
             <br></br>
-            <div className="column center is-size-4">Current Bids</div>
+            <div className="column center is-size-4"><strong>Current Bids</strong></div>
             <div className="columns">
                 <div className="column center">
                     <div className="card">
