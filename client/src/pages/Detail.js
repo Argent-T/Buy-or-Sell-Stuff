@@ -1,9 +1,13 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import { Link, useParams } from "react-router-dom";
 import API from "../utils/API";
 import Navbar from "../components/Navbar";
+import axios from "axios";
+import UserContext from "../utils/UserContext";
+
 
 function Detail(props) {
+    const user = useContext(UserContext);
     const [listing, setListing] = useState({})
     // When this component mounts, grab the book with the _id of props.match.params.id
     // e.g. localhost:3000/books/599dcb67f0f16317844583fc
@@ -19,8 +23,21 @@ function Detail(props) {
     const bid = document.querySelector(".modal")
 
     function placeBid() {
-        console.log(bid)
-        bid.classList.add("is-active")
+        if(document.querySelector(".placeBid").innerText === "Buy"){
+            console.log("BUY BUY BUY ")
+            var update = {...listing, buyer: user.username, available: false}
+            console.log(update);
+            API.updateListing(update._id, update);
+            // axios.post("/api/listings", update )
+
+
+        }
+        else{
+            console.log(bid)
+            bid.classList.add("is-active")
+        }
+
+      
     }
 
     function closeModal(){
@@ -112,9 +129,10 @@ function buttonText(){
                         <div className="column is-half">
                             <div className="center">Category: {listing.category}</div>
                             <div id="detailUsername center">Listing by: {listing.postUser}</div>
-                        <div id="biddername" >Current Bid by: {listing.topBidUser}</div>
+                       
                         <div id="postDate">Date Listed: {listingDate()}</div>
                         <div id="bidDate">{bidDate()}</div>
+                        <div id="biddername" >Current Bid by: {listing.topBidUser}</div>
                         <div id="remainingTime">{remainingTime()}</div>
                         </div>
                         <div className="column is-half">
