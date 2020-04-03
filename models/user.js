@@ -38,6 +38,7 @@ const userSchema = new Schema({
 		type: String,
 	},
 	listings: [{ type: Schema.Types.ObjectId, ref: 'Listing'}]
+	// ,purchased: [{ type: Schema.Types.ObjectId, ref: 'Listing'}]
 
 })
 

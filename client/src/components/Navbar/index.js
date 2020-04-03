@@ -1,9 +1,11 @@
 import React from 'react';
 import { Link } from 'react-router-dom'
 import './style.css';
+import axios from 'axios';
 
 
 function Navbar() {
+  
   document.addEventListener('DOMContentLoaded', () => {
 
     // Get all "navbar-burger" elements
@@ -30,7 +32,24 @@ function Navbar() {
 
   });
 
+// logout/////////////////////////////////////////////
+  function logout(){
+    console.log("logging out");
+    axios.post('api/user/logout').then(response => {
+      console.log(response.data)
+      if (response.status === 200) {
+        this.props.updateUser({
+          loggedIn: false,
+          username: null
+        })
+      }
+    }).catch(error => {
+        console.log(error)
+    })
+  }
 
+
+//////////////////////////////////////////////////////////////////
   return (
     <nav className="navbar" role="navigation" aria-label="main navigation">
       <div className="navbar-brand">

@@ -33,6 +33,7 @@ class App extends Component {
   }
 
   updateUser (userObject) {
+    console.log("updateuser", userObject)
     this.setState(userObject)
   }
 
