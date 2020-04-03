@@ -122,7 +122,7 @@ function Navbar() {
                 <Link to="/login"><strong>Log in</strong></Link>
               </div>
               <div className="button is-light">
-                <Link to="/logout"><strong>Log out</strong></Link>
+                <Link to="/logout" onClick={logout}><strong>Log out</strong></Link>
               </div>
             </div>
           </div>
