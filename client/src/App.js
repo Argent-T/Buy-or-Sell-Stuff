@@ -11,6 +11,8 @@ import Sell from './pages/Sell';
 import Signup from './pages/SignUp';
 import Login from './pages/Login';
 import UserContext from './utils/UserContext';
+import Congrats from './pages/Congrats';
+import Thanks from './pages/Thanks';
 
 
 
@@ -99,6 +101,8 @@ render(){
               updateUser={this.updateUser}
             />}
         />
+        <Route exact path="/congrats" component ={Congrats}/>
+        <Route exact path="/thanks" component ={Thanks}/>
     </Router>
     </div>
     <Footer />
