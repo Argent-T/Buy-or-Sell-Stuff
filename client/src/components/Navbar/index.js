@@ -1,8 +1,8 @@
-import React from 'react';
+import React, { useContext, useEffect } from 'react';
 import { Link } from 'react-router-dom'
 import './style.css';
 import axios from 'axios';
-
+import UserContext from "../../utils/UserContext";
 
 function Navbar() {
   
@@ -50,6 +50,25 @@ function Navbar() {
 
 
 //////////////////////////////////////////////////////////////////
+  const user = useContext(UserContext);
+ 
+  useEffect(()=>{
+    const login =  document.getElementById("login")
+    const signup = document.getElementById("signup")
+    const logout = document.getElementById("logout")
+if(user.loggedIn === true){
+  login.style.display = "none"
+  signup.style.display = "none"
+  logout.style.display = "block"
+}
+else{
+  login.style.display = "block"
+  signup.style.display = "block"
+  logout.style.display = "none"
+}
+
+  }, [])
+
   return (
     <nav className="navbar" role="navigation" aria-label="main navigation">
       <div className="navbar-brand">
@@ -115,14 +134,14 @@ function Navbar() {
         <div className="navbar-end">
           <div className="navbar-item">
             <div className="buttons">
-              <div className="button is-light">
-                <Link to="/signup"><strong>Sign up</strong></Link>
+              <div className="button is-light" id="signup">
+                <Link  to="/signup"><strong>Sign up</strong></Link>
               </div>
-              <div className="button is-light">
-                <Link to="/login"><strong>Log in</strong></Link>
+              <div className="button is-light" id="login">
+                <Link  to="/login"><strong>Log in</strong></Link>
               </div>
-              <div className="button is-light">
-                <Link to="/logout" onClick={logout}><strong>Log out</strong></Link>
+              <div className="button is-light" id="logout">
+                <Link  to="/logout" onClick={logout}><strong>Log out</strong></Link>
               </div>
             </div>
           </div>

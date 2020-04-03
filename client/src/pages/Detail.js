@@ -78,6 +78,16 @@ function Detail(props) {
 
 /////////////////////////////////////////////////
 
+//Button Text///////////////////////////////////
+function buttonText(){
+    if(listing.bidDate === undefined){
+        return("Buy")
+    }
+    else{
+        return("Place Bid")
+    }
+}
+////////////////////////////////////////////////
     return (
         <>
             <Navbar />
@@ -111,7 +121,7 @@ function Detail(props) {
                                 <div className="modal-background"></div>
                                 <div className="modal-card">
                                     <header className="modal-card-head">
-                                        <p className="modal-card-title">Place your Bid</p>
+                                        <p className="modal-card-title">{buttonText()}</p>
                                         <button onClick={closeModal} className="delete" aria-label="close"></button>
                                     </header>
                                     <section className="modal-card-body">

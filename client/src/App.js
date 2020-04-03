@@ -72,12 +72,7 @@ render(){
   return (
     <UserContext.Provider value = {this.state}>
     <div className="App">
-      {/* greet user if logged in: */}
-        <div id="pageContent">
-        {this.state.loggedIn &&
-          <p>Join the party, {this.state.username}!</p>
-        }
-        {/* Routes to different components */}
+      <div id="pageContent">
 
     <Router>
       <Route exact path="/" component = {Landing} />
@@ -102,12 +97,8 @@ render(){
               updateUser={this.updateUser}
             />}
         />
-      {/* include route with Id for specific item detail page */}
     </Router>
     </div>
-
- 
-
     <Footer />
 
     </div>
