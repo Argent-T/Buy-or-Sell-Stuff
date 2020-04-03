@@ -37,7 +37,16 @@ class LoginForm extends Component {
                     // update App.js state
                     this.props.updateUser({
                         loggedIn: true,
-                        username: response.data.username
+                        
+          username: response.data.username,
+          first: response.data.first,
+          last: response.data.last,
+          address: response.data.address,
+          city: response.data.city, 
+          state: response.data.state,
+          zip: response.data.zip,
+          email: response.data.email,
+          listings: response.data.listings
                     })
                     // update the state to redirect to home
                     this.setState({
