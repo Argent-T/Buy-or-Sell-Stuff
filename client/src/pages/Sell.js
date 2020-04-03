@@ -87,7 +87,7 @@ function Sell() {
               topBid: formObject.price,
               topBidUser: " ",
               postUser: user.username,
-              _id: user._id
+              userid: user.id
             })
               .then(res => loadListings())
               .catch(err => console.log(err));
