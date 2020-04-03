@@ -2,9 +2,20 @@ import React, { useEffect, useState } from "react";
 import Navbar from "../components/Navbar";
 import API from "../utils/API";
 import { Link, useParams } from "react-router-dom";
+import { List, ListItem } from "../components/List";
 
 
 function Profile(props) {
+
+    const [listings, setListings] = useState([]);
+    const [results, setResults] = useState([]);
+
+    // Load all books and store them with setBooks
+    useEffect(() => {
+        loadListings();
+        
+    }, []);
+
     const [user, setUser] = useState({})
     // When this component mounts, grab the book with the _id of props.match.params.id
     // e.g. localhost:3000/books/599dcb67f0f16317844583fc
@@ -24,6 +35,15 @@ function Profile(props) {
           x.innerHTML = "Yes";
         }
       }
+
+      function loadListings() {
+        API.getListings()
+            .then(res => {
+                setListings(res.data)
+                setResults(res.data)
+            })
+            .catch(err => console.log(err));
+    }
 
     return (
         <>
@@ -78,15 +98,42 @@ function Profile(props) {
                 </div>
             </div>
             <br></br>
-            <div className="column center is-size-4"><strong>Current Bids</strong></div>
-            <div className="columns">
+            {/* ////////////////would show listings////////////// */}
+            {/* <div className="column center is-size-4"><strong>Listings for Sale</strong></div>
+            <div className="columns profileCard">
                 <div className="column center">
                     <div className="card">
-                        Loop through when we have user id
+                    <List>
+                <div className="columns is-multiline">
+                    {results.map(listing => (
+                        <div className="column is-narrow is-one-quarter-desktop is-half-tablet">
+                            <ListItem key={listing._id}>
+                                <Link to={"/listings/" + listing._id}>
+                                    <h1 className="content card cardtitle">{listing.title}</h1>
+                                    <div className="card card-size">
+                                        <div className="card-image">
+                                            <figure className="image is-3by2">
+                                                <img src={(require = listing.img)} alt="Placeholder image" />
+                                            </figure>
+                                        </div>
+                                        <footer className="card-footer">
+                                            <a className="card-footer-item cardFooter">
+                                            <strong>${listing.price}</strong></a>
+                                        </footer>
+                                    </div>
+                                </Link>
+                            </ListItem>
+                        </div>
+
+                    ))}
+                </div>
+            </List>
                     </div>
                 </div>
-            </div>        
+            </div>         */}
+            <div className="is-pulled-right backBtn">
             <Link to="/">← Back</Link>
+            </div>
         </>
     )
 }
