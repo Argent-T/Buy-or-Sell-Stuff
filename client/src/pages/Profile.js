@@ -29,7 +29,7 @@ function Profile(props) {
         <>
             <Navbar />
             <br></br>
-            <h1 className="center is-size-2"><strong>"Username's Profile"{user.username}</strong></h1>
+            <h1 className="center is-size-2"><strong>{user.username}'s Profile</strong></h1>
             <br></br>
             <div className="column center is-half is-size-4">
                 <strong>Basic Information</strong>
@@ -39,25 +39,19 @@ function Profile(props) {
                 <div className="column is-half">
                     <div className="card">
                         <div className="columns card-content">
-                            <p className="column is-half">First Name</p><p className="column is-half">"NAME HERE"</p>
+                            <p className="column is-half"><strong>Full Name</strong></p><p className="column is-half">{user.first} {user.last}</p>
                         </div>
 
                     </div>
                     <div className="card">
                         <div className="columns card-content">
-                            <p className="column is-half">Email Address</p><p className="column is-half">"EMAIL HERE"</p>
+                            <p className="column is-half"><strong>Email Address</strong></p><p className="column is-half">{user.email}</p>
                         </div>
 
                     </div>
                     <div className="card">
                         <div className="columns card-content">
-                            <p className="column is-half">User Name</p><p className="column is-half">"USERNAME HERE"</p>
-                        </div>
-
-                    </div>
-                    <div className="card">
-                        <div className="columns card-content">
-                            <p className="column is-half">Password</p><p className="column is-half">"Click to Change Password"</p>
+                            <p className="column is-half"><strong>Location</strong></p><p className="column is-half">{user.city}, {user.state}</p>
                         </div>
 
                     </div>
