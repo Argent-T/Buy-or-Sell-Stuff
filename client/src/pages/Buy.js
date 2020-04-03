@@ -85,7 +85,7 @@ function Buy() {
     return (
         <>
             <Navbar />
-            <div className="container-fluid">
+            <div className="container">
             <div className="content is-large">
                 <h1 className="viewHeading">View Items</h1>
             </div>
