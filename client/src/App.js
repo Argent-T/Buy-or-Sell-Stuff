@@ -10,6 +10,8 @@ import Buy from './pages/Buy';
 import Sell from './pages/Sell';
 import Signup from './pages/SignUp';
 import Login from './pages/Login';
+import UserContext from './utils/UserContext';
+
 
 
 class App extends Component {
@@ -43,7 +45,16 @@ class App extends Component {
 
         this.setState({
           loggedIn: true,
-          username: response.data.user.username
+          id: response.data.user._id,
+          username: response.data.user.username,
+          first: response.data.user.first,
+          last: response.data.user.last,
+          address: response.data.user.address,
+          city: response.data.user.city, 
+          state: response.data.user.state,
+          zip: response.data.user.zip,
+          email: response.data.user.email,
+          listings: response.data.user.listings
         })
       } else {
         console.log('Get user: no user');
@@ -58,6 +69,7 @@ class App extends Component {
 
 render(){
   return (
+    <UserContext.Provider value = {this.state}>
     <div className="App">
       {/* greet user if logged in: */}
         <div id="pageContent">
@@ -92,9 +104,13 @@ render(){
       {/* include route with Id for specific item detail page */}
     </Router>
     </div>
+
+ 
+
     <Footer />
 
     </div>
+   </UserContext.Provider>
   );
 }
 }
