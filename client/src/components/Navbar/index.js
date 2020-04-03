@@ -56,21 +56,24 @@ function Navbar() {
     const login =  document.getElementById("login")
     const signup = document.getElementById("signup")
     const logout = document.getElementById("logout")
+    const profile = document.getElementById("profile")
 if(user.loggedIn === true){
   login.style.display = "none"
   signup.style.display = "none"
   logout.style.display = "block"
+  profile.style.display = "block"
 }
 else{
   login.style.display = "block"
   signup.style.display = "block"
   logout.style.display = "none"
+  profile.style.display = "none"
 }
 
   }, [button])
 
   return (
-    <nav className="navbar" role="navigation" aria-label="main navigation">
+    <nav className="navbar is-size-3" role="navigation" aria-label="main navigation">
       <div className="navbar-brand">
         <div className="navbar-item">
           <Link to="/">
@@ -89,7 +92,7 @@ else{
             <Link to="/" className="links">Home</Link>
 
           </div>
-          <div className="navbar-item">
+          <div className="navbar-item" id="profile">
             <Link to="/profile" className="links"> Profile</Link>
           </div>
           <div className="navbar-item">
@@ -101,10 +104,10 @@ else{
             <Link to="/sell" className="links">Sell</Link>
 
           </div>
-          <div className="navbar-item">
+          {/* <div className="navbar-item">
             <Link to="/contact" className="links">Contact</Link>
 
-          </div>
+          </div> */}
 
         </div>
         <div className="navbar-end">
