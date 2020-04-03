@@ -88,6 +88,19 @@ function buttonText(){
     }
 }
 ////////////////////////////////////////////////
+
+//biddername////////////////////////////////////////////////
+function bidname(){
+  const  element = document.getElementById('biddername')
+    if(listing.bidDate === undefined){
+        return
+    }
+    else{
+        element.style.display = "block"
+    }
+}
+
+/////////////////////////////////////////////////
     return (
         <>
             <Navbar />
@@ -111,7 +124,7 @@ function buttonText(){
                         <div className="column is-half">
                             <div className="center">Category: {listing.category}</div>
                             <div id="detailUsername center">Listing by: {listing.postUser}</div>
-                            <div id="detailUsername center">Current Bid by: "UserNameHere"</div>
+                        <div id="biddername" style={{display: "none"}}>{bidname()}Current Bid by: {listing.topBidUser}</div>
                         <div id="postDate">Date Listed: {listingDate()}</div>
                         <div id="bidDate">{bidDate()}</div>
                         <div id="remainingTime">{remainingTime()}</div>
