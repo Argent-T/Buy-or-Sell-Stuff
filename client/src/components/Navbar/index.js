@@ -110,7 +110,6 @@ else{
         <div className="navbar-end">
           <div className="navbar-item">
             <div className="buttons">
-<<<<<<< HEAD
               <div className="button is-light" id="signup">
                 <Link  to="/signup"><strong>Sign up</strong></Link>
               </div>
@@ -119,16 +118,6 @@ else{
               </div>
               <div className="button is-light" id="logout">
                 <Link  to="/" onClick={()=>logout, ()=> setButton(1)}><strong>Log out</strong></Link>
-=======
-              <div className="">
-                <Link to="/signup"><button className="button navBtn"><strong>Sign up</strong></button></Link>
-              </div>
-              <div className="">
-                <Link to="/login"><button className="button navBtn"><strong>Log in</strong></button></Link>
-              </div>
-              <div className="">
-                <Link to="/logout" onClick={logout}><button className="button navBtn"><strong>Log out</strong></button></Link>
->>>>>>> 4fe8e4a4586ac4ff09a142adac9e395f421dc738
               </div>
             </div>
           </div>
