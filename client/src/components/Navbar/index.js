@@ -1,8 +1,8 @@
-import React from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom'
 import './style.css';
 import axios from 'axios';
-
+import UserContext from "../../utils/UserContext";
 
 function Navbar() {
   
@@ -50,6 +50,25 @@ function Navbar() {
 
 
 //////////////////////////////////////////////////////////////////
+  const user = useContext(UserContext);
+  const [button, setButton] = useState()
+  useEffect(()=>{
+    const login =  document.getElementById("login")
+    const signup = document.getElementById("signup")
+    const logout = document.getElementById("logout")
+if(user.loggedIn === true){
+  login.style.display = "none"
+  signup.style.display = "none"
+  logout.style.display = "block"
+}
+else{
+  login.style.display = "block"
+  signup.style.display = "block"
+  logout.style.display = "none"
+}
+
+  }, [button])
+
   return (
     <nav className="navbar" role="navigation" aria-label="main navigation">
       <div className="navbar-brand">
@@ -87,42 +106,18 @@ function Navbar() {
 
           </div>
 
-
-
-
-          {/* <div className="navbar-item has-dropdown is-hoverable">
-  <div className="navbar-link">
-          More
-        </div>
-        <div className="navbar-dropdown">
-          <div className="navbar-item">
-           <Link to="/buy">Buy</Link> 
-          </div>
-          <div className="navbar-item">
-          <Link to="/sell">Sell</Link>
-          </div>
-          <div className="navbar-item">
-            Contact
-          </div>
-          <hr className="navbar-divider"/>
-          <div className="navbar-item">
-            Report an issue
-          </div>
-        </div>
-
-  </div> */}
         </div>
         <div className="navbar-end">
           <div className="navbar-item">
             <div className="buttons">
-              <div className="">
-                <Link to="/signup"><button className="button navBtn"><strong>Sign up</strong></button></Link>
+              <div className="button is-light" id="signup">
+                <Link  to="/signup"><strong>Sign up</strong></Link>
               </div>
-              <div className="">
-                <Link to="/login"><button className="button navBtn"><strong>Log in</strong></button></Link>
+              <div className="button is-light" id="login">
+                <Link  to="/login"><strong>Log in</strong></Link>
               </div>
-              <div className="">
-                <Link to="/logout" onClick={logout}><button className="button navBtn"><strong>Log out</strong></button></Link>
+              <div className="button is-light" id="logout">
+                <Link  to="/" onClick={logout}><strong>Log out</strong></Link>
               </div>
             </div>
           </div>

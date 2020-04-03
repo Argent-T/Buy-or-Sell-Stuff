@@ -78,6 +78,17 @@ function Detail(props) {
 
 /////////////////////////////////////////////////
 
+//Button Text///////////////////////////////////
+function buttonText(){
+    if(listing.bidDate === undefined){
+        return("Buy")
+    }
+    else{
+        return("Place Bid")
+    }
+}
+////////////////////////////////////////////////
+
     return (
         <>
             <Navbar />
@@ -100,8 +111,8 @@ function Detail(props) {
                     <div className="columns">
                         <div className="column is-half">
                             <div className="center">Category: {listing.category}</div>
-                            <div id="detailUsername center">Listing by: "UserNameHere"</div>
-                            <div id="detailUsername center">Current Bid by: "UserNameHere"</div>
+                            <div id="detailUsername center">Listing by: {listing.postUser}</div>
+                        <div id="biddername" >Current Bid by: {listing.topBidUser}</div>
                         <div id="postDate">Date Listed: {listingDate()}</div>
                         <div id="bidDate">{bidDate()}</div>
                         <div id="remainingTime">{remainingTime()}</div>
@@ -111,7 +122,7 @@ function Detail(props) {
                                 <div className="modal-background"></div>
                                 <div className="modal-card">
                                     <header className="modal-card-head">
-                                        <p className="modal-card-title">Place your Bid</p>
+                                        <p className="modal-card-title">{buttonText()}</p>
                                         <button onClick={closeModal} className="delete" aria-label="close"></button>
                                     </header>
                                     <section className="modal-card-body">
@@ -125,7 +136,7 @@ function Detail(props) {
                                     </footer>
                                 </div>
                             </div>
-                            <button className="placeBid" onClick={placeBid}>Place Bid</button>
+                         <button className="placeBid" onClick={placeBid}>{buttonText()}</button>
                         </div>
                     </div>
                 </div>
