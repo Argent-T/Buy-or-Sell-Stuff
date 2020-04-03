@@ -56,9 +56,11 @@ router.post(
 
 router.get('/', (req, res, next) => {
     console.log('===== user!!======')
-    console.log(req.user)
+    console.log("get data",req.user)
     if (req.user) {
-        res.json({ user: req.user })
+        User.findOne({_id: req.user._id}, {password:0})
+        .then( data =>res.json(data) )
+        
     } else {
         res.json({ user: null })
     }
