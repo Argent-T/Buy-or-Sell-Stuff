@@ -57,6 +57,7 @@ function Navbar() {
     const signup = document.getElementById("signup")
     const logout = document.getElementById("logout")
     const profile = document.getElementById("profile")
+
 if(user.loggedIn === true){
   login.style.display = "none"
   signup.style.display = "none"
@@ -88,10 +89,10 @@ else{
       </div>
       <div id="navbarBasicExample" className="navbar-menu">
         <div className="navbar-start">
-          <div className="navbar-item">
+          {/* <div className="navbar-item">
             <Link to="/" className="links">Home</Link>
 
-          </div>
+          </div> */}
           <div className="navbar-item" id="profile">
             <Link to="/profile" className="links"> Profile</Link>
           </div>
@@ -113,14 +114,14 @@ else{
         <div className="navbar-end">
           <div className="navbar-item">
             <div className="buttons">
-              <div className="button is-light" id="signup">
-                <Link  to="/signup"><strong>Sign up</strong></Link>
+              <div>
+                <Link  to="/signup"><button className="button navBtn" id="signup"><strong>Sign up</strong></button></Link>
               </div>
-              <div className="button is-light" id="login">
-                <Link  to="/login"><strong>Log in</strong></Link>
+              <div>
+                <Link  to="/login"><button className="button navBtn" id="login"><strong>Log in</strong></button></Link>
               </div>
-              <div className="button is-light" id="logout">
-                <Link  to="/logout" onClick={logout}><strong>Log out</strong></Link>
+              <div>
+              <a href="/" ><button id="logout" onClick={logout} className="button navBtn"><strong>Log out</strong></button></a>
               </div>
             </div>
           </div>
