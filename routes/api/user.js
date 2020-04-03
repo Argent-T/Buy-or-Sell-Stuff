@@ -1,7 +1,11 @@
 const express = require('express')
 const router = express.Router()
 const User = require('../../models/user')
+const bcrypt = require("bcryptjs");
+const jwt = require("jsonwebtoken");
+const keys = require("../../passport/keys");
 const passport = require('../../passport')
+const validateLoginInput = require("../../validation/login");
 
 router.post('/', (req, res) => {
     console.log('user signup');
@@ -64,13 +68,65 @@ router.get('/', (req, res, next) => {
     }
 })
 
-router.get('/logout', function(req, res){
+// router.post('/logout', (req, res) => {
+//     if (req.user) {
+//         req.logout()
+//         res.send({ msg: 'logging out' })
+//     } else {
+//         res.send({ msg: 'no user to log out' })
+//     }
+// })
 
-        console.log('=====Logout!=====')
-        console.log(req.body)
-        req.logout();
-        res.redirect("/");
-    } 
-)
+router.post("/logout", (req, res) => {
+    // Form validation
+
+    const { errors, isValid } = validateLoginInput(req.body);
+
+    // Check validation
+    if (!isValid) {
+
+        console.log("valid")
+        return res.status(400).json(errors);
+    }
+    const email = req.body;
+    const password = req.body;
+
+    User.findOne({ email }).then(user => {
+        // Check if user exists
+        if (!user) {
+            return res.status(404).json({ emailnotfound: "Email not found" });
+        }
+
+        bcrypt.compare(password, inputPassword).then(isMatch => {
+            if (isMatch) {
+                // User matched
+                // Create JWT Payload
+                const payload = {
+                    id: user.id,
+                    name: user.name
+                };
+
+            
+            jwt.sign(
+                payload,
+                keys.secretOrKey,
+                {
+                    expiresIn: 31556926 // 1 year in seconds
+                },
+                (err, token) => {
+                    res.json({
+                        success: true,
+                        token: "Bearer " + token
+                    });
+                }
+            );
+        } else {
+            return res
+                .status(400)
+                .json({ passwordincorrect: "Password incorrect" });
+        }
+        });
+});
+    });
 
 module.exports = router

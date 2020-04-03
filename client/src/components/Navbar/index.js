@@ -4,6 +4,9 @@ import './style.css';
 
 
 function Navbar() {
+
+
+  
   document.addEventListener('DOMContentLoaded', () => {
 
     // Get all "navbar-burger" elements
