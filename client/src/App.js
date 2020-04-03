@@ -41,21 +41,21 @@ class App extends Component {
     axios.get('api/user/').then(response => {
       console.log('Get user response: ')
       console.log(response.data)
-      if (response.data.user) {
+      if (response.data) {
         console.log('Get User: There is a user saved in the server session: ')
 
         this.setState({
           loggedIn: true,
-          id: response.data.user._id,
-          username: response.data.user.username,
-          first: response.data.user.first,
-          last: response.data.user.last,
-          address: response.data.user.address,
-          city: response.data.user.city, 
-          state: response.data.user.state,
-          zip: response.data.user.zip,
-          email: response.data.user.email,
-          listings: response.data.user.listings
+          id: response.data._id,
+          username: response.data.username,
+          first: response.data.first,
+          last: response.data.last,
+          address: response.data.address,
+          city: response.data.city, 
+          state: response.data.state,
+          zip: response.data.zip,
+          email: response.data.email,
+          listings: response.data.listings
         })
       } else {
         console.log('Get user: no user');

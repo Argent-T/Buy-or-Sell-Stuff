@@ -72,7 +72,7 @@ function Landing() {
                         <div className="column is-narrow is-one-quarter-desktop is-half-tablet">
                             <ListItem key={listing._id}>
                                 <Link to={"/listings/" + listing._id}>
-                                    <h1 className="content is-large cardtitle"><strong>{listing.title}</strong></h1>
+                                    <h1 className="content card cardtitle">{listing.title}</h1>
                                     <div className="card card-size">
                                         <div className="card-image card">
                                             <figure className="image is-3by2">
@@ -81,11 +81,8 @@ function Landing() {
                                             </figure>
                                         </div>
                                         <footer className="card-footer">
-                                            <a className="card-footer-item">
-                                            <strong>BUY</strong></a>
-                                            <a className="card-footer-item">
-                                            <strong>BID</strong></a>
-
+                                            <a className="card-footer-item cardFooter">
+                                            <strong>${listing.price}</strong></a>
                                         </footer>
                                     </div>
                                 </Link>
