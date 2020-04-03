@@ -10,11 +10,11 @@ function Sell() {
   const [listings, setListings] = useState([]);
   const [formObject, setFormObject] = useState({});
   const [bidDate, setBidDate] = useState("");
-  const [bidOption, setBidOption] = useState("Sale");
+  const [bidOption, setBidOption] = useState("");
   const [prevImg, setPrevImg] = useState("");
 
   const categories = ["Select a Category", "Clothes", "Cars", "Sports", "Books", "Computers", "Electronics", "Toys", "Other"]
-  const bidOptions = ["Sale", "Auction"];
+  const bidOptions = ["Select", "Sale", "Auction"];
   // Load all books and store them with setBooks
   // useEffect(() => {
   //   loadListings()
@@ -82,6 +82,7 @@ function Sell() {
               title: formObject.title,
               price: formObject.price,
               description: formObject.description,
+              bidOption: formObject.bidOption,
               bidDate: formObject.bidDate,
               topBid: formObject.price,
               topBidUser: " "
@@ -99,11 +100,15 @@ function Sell() {
   useEffect(() => {
     var element = document.getElementById("bidDate");
     if (bidOption === "Auction") {
-      element.style.display = "block"
+      element.style.display = "block"        
+        setBidOption(bidOption)
+
+
     }
     else {
       element.style.display = "none"
     }
+    console.log(bidOption)
 
   }, [bidOption])
   /////////////////////////////////////////
@@ -145,6 +150,7 @@ const user = useContext(UserContext);
 
                 <Input className="inputPrice"
                   onChange={handleInputChange}
+                  type="number"
                   name="price"
                   placeholder="Price (required)"
                 />
@@ -180,15 +186,19 @@ const user = useContext(UserContext);
               </form>
             </div>
           </div>
+          <div className="is-divider-vertical" data-content="OR"></div>
           <div className="column is-5-tablet is-5-desktop">
             <h1 className="content is-large headingTitle"><strong>See Your Listing Here</strong></h1>
+            <div className="hr"></div>
+
             <div className="columns">
               <div className="column">
-                <h1 className="content is-large "><strong>{formObject.title}</strong></h1>
+                <p className="sellTitle"><strong>{formObject.title}</strong></p>
                 <p className="sellDesc"><strong>{formObject.description}</strong></p>
 
-                <p className="sellPrice"><strong>{formObject.price}</strong></p>
-
+                <p className="sellPrice"><strong>${formObject.price}</strong></p>
+                <p className="sellOption"><strong>For {bidOption}</strong></p>
+                <p className="optionDate"><strong>{formObject.bidDate}</strong></p>
               </div>
 
               <div className="column">
@@ -198,7 +208,8 @@ const user = useContext(UserContext);
               </div>
 
             </div>
-            <hr />
+            <div className="hr"></div>
+
             <button className="sublist-btn"
               disabled={!(formObject.title && formObject.price && formObject.description)}
               onClick={handleFormSubmit}
