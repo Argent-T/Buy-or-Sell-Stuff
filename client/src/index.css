@@ -338,14 +338,24 @@ text-align:left;
 margin-left:10px;
 }
 .placeBid{
-background-color: blue;
+background-color: #3273dc;
 color: white;
 padding: 10px;
 cursor:pointer;
 font-size: 30px;
 
 }
-
+.profileCard{
+  margin-right: 20px;
+  margin-left: 20px;
+}
+.backBtn{
+  margin-right:20px;
+}
+.navBtn{
+  margin-right:10px;
+  color:#3273dc;
+}
 
 @media(max-width: 768px) {
   .myHero {

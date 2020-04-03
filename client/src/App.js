@@ -81,7 +81,9 @@ render(){
 
     <Router>
       <Route exact path="/" component = {Landing} />
-      <Route exact path="/profile/:id" component = {Profile} />
+      <Route exact path="/profile">
+            <Profile />
+       </Route>
       <Route exact path="/buy" component = {Buy} />
       <Route exact path="/sell" component = {Sell} />
       <Route exact path="/signup" component = {Signup} />

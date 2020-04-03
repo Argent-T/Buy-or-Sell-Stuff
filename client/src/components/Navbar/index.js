@@ -115,14 +115,14 @@ function Navbar() {
         <div className="navbar-end">
           <div className="navbar-item">
             <div className="buttons">
-              <div className="button is-light">
-                <Link to="/signup"><strong>Sign up</strong></Link>
+              <div className="">
+                <Link to="/signup"><button className="button navBtn"><strong>Sign up</strong></button></Link>
               </div>
-              <div className="button is-light">
-                <Link to="/login"><strong>Log in</strong></Link>
+              <div className="">
+                <Link to="/login"><button className="button navBtn"><strong>Log in</strong></button></Link>
               </div>
-              <div className="button is-light">
-                <Link to="/logout" onClick={logout}><strong>Log out</strong></Link>
+              <div className="">
+                <Link to="/logout" onClick={logout}><button className="button navBtn"><strong>Log out</strong></button></Link>
               </div>
             </div>
           </div>
