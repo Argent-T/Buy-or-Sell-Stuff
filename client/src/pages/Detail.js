@@ -14,7 +14,7 @@ function Detail(props) {
             .catch(err => console.log(err));
     }, [])
 
-
+// console.log("***********", listing.bidOption)
 
     const bid = document.querySelector(".modal")
 

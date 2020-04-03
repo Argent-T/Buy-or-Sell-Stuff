@@ -19,7 +19,7 @@ function Landing() {
           .then(res => {
             const randArray = res.data;
             randArray.sort(function(a, b){return 0.5 - Math.random()});
-            var newList = randArray.slice(0, 6);
+            var newList = randArray.slice(0, 8);
             setListings(newList)
           })
           .catch(err => console.log(err));
