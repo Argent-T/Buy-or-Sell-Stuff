@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom'
 import './style.css';
 import axios from 'axios';
@@ -51,7 +51,7 @@ function Navbar() {
 
 //////////////////////////////////////////////////////////////////
   const user = useContext(UserContext);
- 
+  const [button, setButton] = useState()
   useEffect(()=>{
     const login =  document.getElementById("login")
     const signup = document.getElementById("signup")
@@ -67,7 +67,7 @@ else{
   logout.style.display = "none"
 }
 
-  }, [])
+  }, [button])
 
   return (
     <nav className="navbar" role="navigation" aria-label="main navigation">
@@ -106,30 +106,6 @@ else{
 
           </div>
 
-
-
-
-          {/* <div className="navbar-item has-dropdown is-hoverable">
-  <div className="navbar-link">
-          More
-        </div>
-        <div className="navbar-dropdown">
-          <div className="navbar-item">
-           <Link to="/buy">Buy</Link> 
-          </div>
-          <div className="navbar-item">
-          <Link to="/sell">Sell</Link>
-          </div>
-          <div className="navbar-item">
-            Contact
-          </div>
-          <hr className="navbar-divider"/>
-          <div className="navbar-item">
-            Report an issue
-          </div>
-        </div>
-
-  </div> */}
         </div>
         <div className="navbar-end">
           <div className="navbar-item">
@@ -141,7 +117,7 @@ else{
                 <Link  to="/login"><strong>Log in</strong></Link>
               </div>
               <div className="button is-light" id="logout">
-                <Link  to="/logout" onClick={logout}><strong>Log out</strong></Link>
+                <Link  to="/" onClick={()=>logout, ()=> setButton(1)}><strong>Log out</strong></Link>
               </div>
             </div>
           </div>
