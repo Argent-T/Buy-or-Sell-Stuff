@@ -35,7 +35,7 @@ const listingSchema = new Schema({
   topBidUser:{
     type: String
   },
-  postUser:{ type: Schema.Types.ObjectId, ref: "User"}
+  postUser:{ type: String}
 });
 
 const Listing = mongoose.model("Listing", listingSchema);

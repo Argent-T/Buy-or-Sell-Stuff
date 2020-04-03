@@ -110,7 +110,7 @@ function buttonText(){
                     <div className="columns">
                         <div className="column is-half">
                             <div className="center">Category: {listing.category}</div>
-                            <div id="detailUsername center">Listing by: "UserNameHere"</div>
+                            <div id="detailUsername center">Listing by: {listing.postUser}</div>
                             <div id="detailUsername center">Current Bid by: "UserNameHere"</div>
                         <div id="postDate">Date Listed: {listingDate()}</div>
                         <div id="bidDate">{bidDate()}</div>
@@ -135,7 +135,7 @@ function buttonText(){
                                     </footer>
                                 </div>
                             </div>
-                            <button className="placeBid" onClick={placeBid}>Place Bid</button>
+                         <button className="placeBid" onClick={placeBid}>{buttonText()}</button>
                         </div>
                     </div>
                 </div>

@@ -61,7 +61,7 @@ function Sell() {
     })
   }
   //////////////////////////////////////////////////
-
+  const user = useContext(UserContext);
   function handleFormSubmit(event) {
 
     event.preventDefault();
@@ -85,7 +85,8 @@ function Sell() {
               bidOption: formObject.bidOption,
               bidDate: formObject.bidDate,
               topBid: formObject.price,
-              topBidUser: " "
+              topBidUser: " ",
+              postUser: user.username
 
             })
               .then(res => loadListings())
@@ -113,7 +114,7 @@ function Sell() {
   }, [bidOption])
   /////////////////////////////////////////
 
-const user = useContext(UserContext);
+
 
   return (
     <>
