@@ -64,7 +64,7 @@ router.get('/', (req, res, next) => {
     }
 })
 
-router.get('/logout', function(req, res){
+router.post('/logout', function(req, res){
 
         console.log('=====Logout!=====')
         console.log(req.body)
