@@ -40,12 +40,12 @@ app.use(
 
 
 
-
 // Passport
 app.use(passport.initialize())
 app.use(passport.session()) // calls the deserializeUser
 
 // Add routes, both API and view
+// app.use('/user', user)
 app.use(routes);
 // Routes
 // app.use('/user', user)

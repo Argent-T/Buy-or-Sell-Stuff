@@ -24,6 +24,7 @@ class App extends Component {
     this.getUser = this.getUser.bind(this)
     this.componentDidMount = this.componentDidMount.bind(this)
     this.updateUser = this.updateUser.bind(this)
+    
   }
 
   componentDidMount() {
@@ -66,16 +67,22 @@ render(){
         {/* Routes to different components */}
     <Router>
       <Route exact path="/" component = {Landing} />
+
       <Route exact path="/profile/:id" component = {Profile} />
       <Route exact path="/buy" component = {Buy} />
       <Route exact path="/sell" component = {Sell} />
-      <Route exact path="/signup" component = {Signup} />
+
     <Route
           path="/login"
           render={() =>
             <Login
               updateUser={this.updateUser}
             />}
+        />
+        <Route
+          path="/signup"
+          render={() =>
+            <Signup/>}
         />
       <Route exact path="/listings/:id">
             <Detail />
