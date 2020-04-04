@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { Redirect } from 'react-router-dom'
 import axios from 'axios'
-
+import Navbar from '../components/Navbar'
 class LoginForm extends Component {
     constructor() {
         super()
@@ -66,6 +66,8 @@ class LoginForm extends Component {
         } else {
             return (
                 <div>
+                    <Navbar />
+                    <br></br>
                     <div className="container loginContent">
                         <label className="content is-large" htmlFor="username">
                             <strong>Login</strong>
