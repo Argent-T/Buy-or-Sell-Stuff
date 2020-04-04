@@ -12,7 +12,8 @@ const UserContext = React.createContext({
     state: "",
     zip: "",
     email: "",
-    listings: []
+    listings: [],
+    purchased: []
 })
 
 export default UserContext
