@@ -31,9 +31,6 @@ function Sell() {
       .catch(err => console.log(err));
   };
 
-function buy (){
- window.location.href= "/buy"
-}
   // Handles updating component state when the user types into the input field
   function handleInputChange(event) {
     const { name, value } = event.target;
@@ -99,7 +96,6 @@ function buy (){
               
           })
         console.log("logged")
-        .then(<Link to="/buy"></Link>);
       }
     }
     
@@ -203,7 +199,6 @@ const user = useContext(UserContext);
               <div className="column"> */}
                 {/* <p className="sellTitle"><strong>{formObject.title}</strong></p>
                 <p className="sellDesc"><strong>{formObject.description}</strong></p>
-
                 <p className="sellPrice"><strong>{formObject.price}</strong></p>
                 <p className="sellOption"><strong>{bidOption}</strong></p>
                 <p className="optionDate"><strong>{formObject.bidDate}</strong></p> */}
@@ -218,15 +213,14 @@ const user = useContext(UserContext);
 
             {/* </div> */}
             {/* <div className="hr"></div> */}
-            <button className="sublist-btn"
-              disabled={!(formObject.title && formObject.price && formObject.description)}
-
+            <button className="sublist-btn button"
+              disabled={!(formObject.title && formObject.price && formObject.description && formObject.img)}
               onClick={handleFormSubmit}
-              onClick={buy}
-              
+              type="button"
             >
-              Submit Listing
-               </button> 
+              <Link to="/congrats">Submit Listing</Link>
+               </button>
+               
 
 
               

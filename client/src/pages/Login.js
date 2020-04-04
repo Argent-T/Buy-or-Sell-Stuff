@@ -98,10 +98,10 @@ class LoginForm extends Component {
                         </div>
                         <div className="field">
                             <p className="control">
-                                <button className="button is-link">
-                                    <strong 
+                                <button className="button is-link"
+                                    
                                     onClick={this.handleSubmit} 
-                                    className="loginbtn">Login</strong>
+                                    ><strong className="loginbtn">Login</strong>
                                 </button>
                                 <span id="loginSignup">Don't have an account <a href="/signup" >sign up</a></span>
                             </p>

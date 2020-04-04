@@ -64,147 +64,156 @@ class SignUp extends Component {
 
 	render() {
 		if (this.state.redirectTo) {
-            return <Redirect to={{ pathname: this.state.redirectTo }} />
-        } else {
-		return (
-			<>
-				<Navbar></Navbar>
+			return <Redirect to={{ pathname: this.state.redirectTo }} />
+		} else {
+			return (
+				<>
+					<Navbar></Navbar>
 
-				<div className="container signupContent">
-					<h1 className="content is-large">Sign Up</h1>
-					<hr />
-					<div className="field">
-					<div className="columns">
-							<div className="column">
-								<p class="control">
-									<input
-										className="input inputname"
-										type="text"
-										name="username"
-										placeholder="Username"
-										value={this.state.username}
-										onChange={this.handleChange}
-									/>
-								</p>
+					<div className="container signupContent">
+						<h1 className="content is-large">Sign Up</h1>
+						<hr />
+						<div className="field">
+							<div className="columns">
+								<div className="column">
+									<p class="control">
+										<input
+											className="input inputname"
+											type="text"
+											name="username"
+											placeholder="Username"
+											value={this.state.username}
+											onChange={this.handleChange}
+										/>
+									</p>
+								</div>
+							</div>
+							<div className="columns">
+								<div className="column">
+									<p class="control">
+										<input
+											className="input inputname"
+											type="text"
+											name="first"
+											placeholder="First Name"
+											value={this.state.first}
+											onChange={this.handleChange}
+										/>
+									</p>
+								</div>
+								<div className="column">
+									<p class="control">
+										<input
+											className="input inputname"
+											type="text"
+											name="last"
+											placeholder="Last Name"
+											value={this.state.last}
+											onChange={this.handleChange}
+										/>
+									</p>
+								</div>
 							</div>
 						</div>
-						<div className="columns">
-							<div className="column">
-								<p class="control">
-									<input
-										className="input inputname"
-										type="text"
-										name="first"
-										placeholder="First Name"
-										value={this.state.first}
-										onChange={this.handleChange}
-									/>
-								</p>
-							</div>
-							<div className="column">
-								<p class="control">
-									<input
-										className="input inputname"
-										type="text"
-										name="last"
-										placeholder="Last Name"
-										value={this.state.last}
-										onChange={this.handleChange}
-									/>
-								</p>
+						<div className="field">
+							<p class="control">
+								<input
+									className="input inputname"
+									type="text"
+									name="address"
+									placeholder="Address"
+									value={this.state.address}
+									onChange={this.handleChange}
+								/>
+							</p>
+						</div>
+						<div className="field">
+							<div className="columns">
+								<div className="column">
+									<p class="control">
+										<input
+											className="input inputname"
+											type="text"
+											name="city"
+											placeholder="City"
+											value={this.state.city}
+											onChange={this.handleChange}
+										/>
+									</p>
+								</div>
+								<div className="column">
+									<p class="control">
+										<input
+											className="input inputname"
+											type="text"
+											name="state"
+											placeholder="State"
+											value={this.state.state}
+											onChange={this.handleChange}
+										/>
+									</p>
+								</div>
+								<div className="column">
+									<p class="control">
+										<input
+											className="input inputname"
+											type="text"
+											name="zip"
+											placeholder="Zip"
+											value={this.state.zip}
+											onChange={this.handleChange}
+										/>
+									</p>
+								</div>
 							</div>
 						</div>
-					</div>
-					<div className="field">
-						<p class="control">
-							<input
-								className="input inputname"
-								type="text"
-								name="address"
-								placeholder="Address"
-								value={this.state.address}
-								onChange={this.handleChange}
-							/>
-						</p>
-					</div>
-					<div className="field">
-						<div className="columns">
-							<div className="column">
-								<p class="control">
-									<input
-										className="input inputname"
-										type="text"
-										name="city"
-										placeholder="City"
-										value={this.state.city}
-										onChange={this.handleChange}
-									/>
-								</p>
-							</div>
-							<div className="column">
-								<p class="control">
-									<input
-										className="input inputname"
-										type="text"
-										name="state"
-										placeholder="State"
-										value={this.state.state}
-										onChange={this.handleChange}
-									/>
-								</p>
-							</div>
-							<div className="column">
-								<p class="control">
-									<input
-										className="input inputname"
-										type="text"
-										name="zip"
-										placeholder="Zip"
-										value={this.state.zip}
-										onChange={this.handleChange}
-									/>
-								</p>
-							</div>
+
+						<div className="field">
+							<p className="control">
+								<input
+									className="input inputbox"
+									type="email"
+									name="email"
+									placeholder="Email"
+									value={this.state.email}
+									onChange={this.handleChange}
+								/>
+							</p>
 						</div>
-					</div>
 
-					<div className="field">
-						<p className="control">
-							<input
-								className="input inputbox"
-								type="email"
-								name="email"
-								placeholder="Email"
-								value={this.state.email}
-								onChange={this.handleChange}
-							/>
-						</p>
-					</div>
-
-					<div className="field">
-						<p className="control">
-							<input
-								className="input inputbox"
-								type="password"
-								name="password"
-								placeholder="Password"
-								value={this.state.password}
-								onChange={this.handleChange}
-							/>
-						</p>
-					</div>
-					<div className="field">
-						<p className="control">
-							<button onClick={this.handleSubmit} 
+						<div className="field">
+							<p className="control">
+								<input
+									className="input inputbox"
+									type="password"
+									name="password"
+									placeholder="Password"
+									value={this.state.password}
+									onChange={this.handleChange}
+								/>
+							</p>
+						</div>
+						<div className="field">
+							<p className="control">
+								<button disabled={!this.state.email}
+									disabled={!this.state.password}
+									disabled={!this.state.username}
+									disabled={!this.state.first}
+									disabled={!this.state.last}
+									disabled={!this.state.address}
+									disabled={!this.state.city}
+									disabled={!this.state.state}
+									disabled={!this.state.zip}
+									onClick={this.handleSubmit}
 									className="button is-link loginbtn">Submit
 							</button>
-							<span id="loginSignup">Already have an account <a href="/login" >login</a></span>
-						</p>
+								<span id="loginSignup">Already have an account <a href="/login" >login</a></span>
+							</p>
+						</div>
 					</div>
-				</div>
 
-			</>
-		)
+				</>
+			)
 		}
 	}
 }

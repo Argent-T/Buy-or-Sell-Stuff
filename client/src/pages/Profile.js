@@ -13,10 +13,10 @@ function Profile(props) {
     const [results, setResults] = useState([]);
 
     // Load all books and store them with setBooks
-    useEffect(() => {
-        loadPurchased();
+    // useEffect(() => {
+    //     loadPurchased();
         
-    }, []);
+    // }, []);
 
     const [user, setUser] = useState({})
     // When this component mounts, grab the book with the _id of props.match.params.id
@@ -38,20 +38,20 @@ function Profile(props) {
         }
       }
 
-      function loadPurchased() {
-        //   console.log("purchased ids", userinfo.purchased)
-          var ids = userinfo.purchased;
-       var objectid = ids.map(item => `Objectid('${item}')`);
-       console.log(objectid) 
-        API.getPurchased(ids)
-            .then(res => {
-                console.log(res.data)
-                setListings(res.data)
-                setResults(res.data)
+    //   function loadPurchased() {
+    //     //   console.log("purchased ids", userinfo.purchased)
+    //       var ids = userinfo.purchased;
+    //    var objectid = ids.map(item => `Objectid('${item}')`);
+    //    console.log(objectid) 
+    //     API.getPurchased(ids)
+    //         .then(res => {
+    //             console.log(res.data)
+    //             setListings(res.data)
+    //             setResults(res.data)
                 
-            })
-            .catch(err => console.log(err));
-    }
+    //         })
+    //         .catch(err => console.log(err));
+    // }
 
     return (
         <>
