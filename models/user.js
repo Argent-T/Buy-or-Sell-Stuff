@@ -37,8 +37,8 @@ const userSchema = new Schema({
 	email: {
 		type: String,
 	},
-	listings: [{ type: Schema.Types.ObjectId, ref: 'Listing'}]
-	// ,purchased: [{ type: Schema.Types.ObjectId, ref: 'Listing'}]
+	listings: [{ type: Schema.Types.ObjectId, ref: 'Listing'}],
+	purchased: [{ type: Schema.Types.ObjectId, ref: 'Listing'}]
 
 })
 

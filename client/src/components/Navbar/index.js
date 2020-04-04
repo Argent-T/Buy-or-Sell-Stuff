@@ -56,21 +56,25 @@ function Navbar() {
     const login =  document.getElementById("login")
     const signup = document.getElementById("signup")
     const logout = document.getElementById("logout")
+    const profile = document.getElementById("profile")
+
 if(user.loggedIn === true){
   login.style.display = "none"
   signup.style.display = "none"
   logout.style.display = "block"
+  profile.style.display = "block"
 }
 else{
   login.style.display = "block"
   signup.style.display = "block"
   logout.style.display = "none"
+  profile.style.display = "none"
 }
 
   }, [button])
 
   return (
-    <nav className="navbar" role="navigation" aria-label="main navigation">
+    <nav className="navbar is-size-3" role="navigation" aria-label="main navigation">
       <div className="navbar-brand">
         <div className="navbar-item">
           <Link to="/">
@@ -85,11 +89,11 @@ else{
       </div>
       <div id="navbarBasicExample" className="navbar-menu">
         <div className="navbar-start">
-          <div className="navbar-item">
+          {/* <div className="navbar-item">
             <Link to="/" className="links">Home</Link>
 
-          </div>
-          <div className="navbar-item">
+          </div> */}
+          <div className="navbar-item" id="profile">
             <Link to="/profile" className="links"> Profile</Link>
           </div>
           <div className="navbar-item">
@@ -101,23 +105,23 @@ else{
             <Link to="/sell" className="links">Sell</Link>
 
           </div>
-          <div className="navbar-item">
+          {/* <div className="navbar-item">
             <Link to="/contact" className="links">Contact</Link>
 
-          </div>
+          </div> */}
 
         </div>
         <div className="navbar-end">
           <div className="navbar-item">
             <div className="buttons">
-              <div className="button is-light" id="signup">
-                <Link  to="/signup"><strong>Sign up</strong></Link>
+              <div>
+                <Link  to="/signup"><button className="button navBtn" id="signup"><strong>Sign up</strong></button></Link>
               </div>
-              <div className="button is-light" id="login">
-                <Link  to="/login"><strong>Log in</strong></Link>
+              <div>
+                <Link  to="/login"><button className="button navBtn" id="login"><strong>Log in</strong></button></Link>
               </div>
-              <div className="button is-light" id="logout">
-                <Link  to="/" onClick={logout}><strong>Log out</strong></Link>
+              <div>
+              <a href="/" ><button id="logout" onClick={logout} className="button navBtn"><strong>Log out</strong></button></a>
               </div>
             </div>
           </div>

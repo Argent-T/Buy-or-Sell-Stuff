@@ -35,7 +35,8 @@ const listingSchema = new Schema({
   topBidUser:{
     type: String
   },
-  postUser:{ type: String}
+  postUser:{ type: String},
+  available:{ type: Boolean}
 });
 
 const Listing = mongoose.model("Listing", listingSchema);

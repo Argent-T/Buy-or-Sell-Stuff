@@ -24,8 +24,11 @@ module.exports = {
       .catch(err => res.status(422).json(err));
   },
   update: function(req, res) {
+    console.log(req.body.buyer)
+    var buyer = req.body.buyer
     db.Listing
       .findOneAndUpdate({ _id: req.params.id }, req.body)
+      .then(({_id}) => db.User.findOneAndUpdate({username: buyer}, {$push: {purchased: _id}}, {new: true}))
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   },

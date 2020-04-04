@@ -383,6 +383,11 @@ font-size: 30px;
   color:#3273dc;
 }
 
+.font{
+  font-family: 'Merienda', cursive;
+  color: rgb(71, 171, 218);
+}
+
 @media(max-width: 768px) {
   .myHero {
     padding: 50px !important;
