@@ -39,12 +39,16 @@ function Profile(props) {
       }
 
       function loadPurchased() {
-          console.log(userinfo.purchased)
-        API.getPurchased(userinfo.purchased)
+        //   console.log("purchased ids", userinfo.purchased)
+          var ids = userinfo.purchased;
+       var objectid = ids.map(item => `Objectid('${item}')`);
+       console.log(objectid) 
+        API.getPurchased(ids)
             .then(res => {
+                console.log(res.data)
                 setListings(res.data)
                 setResults(res.data)
-                console.log(res.data)
+                
             })
             .catch(err => console.log(err));
     }

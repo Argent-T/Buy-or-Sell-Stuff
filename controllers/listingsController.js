@@ -1,5 +1,6 @@
 const db = require("../models");
 
+
 module.exports = {
   findAll: function(req, res) {
     db.Listing
@@ -9,20 +10,21 @@ module.exports = {
       .catch(err => res.status(422).json(err));
   },
   findPurchased: function(req,res){
-    console.log("profile query", req.body)
+    console.log("profile query", req.params.id)
+        
     db.Listing
-    .find(req.body)
+    .find({"_id": { "$in": req.params.id}})
     .then(dbModel => res.json(dbModel))
     .catch(err => res.status(422).json(err));
   },
 
 
-  // findById: function(req, res) {
-  //   db.Listing
-  //     .findById(req.params.id)
-  //     .then(dbModel => res.json(dbModel))
-  //     .catch(err => res.status(422).json(err));
-  // },
+  findById: function(req, res) {
+    db.Listing
+      .findById(req.params.id)
+      .then(dbModel => res.json(dbModel))
+      .catch(err => res.status(422).json(err));
+  },
   create: function(req, res) {
    
    var  username = req.body.postUser

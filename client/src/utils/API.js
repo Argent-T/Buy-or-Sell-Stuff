@@ -9,7 +9,8 @@ export default {
     return axios.get("/api/listings");
   },
   getPurchased: function(id){
-    return axios.get("/api/listings/" + id);
+    console.log("api-------------------", id)
+    return axios.get("/api/profile/" + id);
   }
   
   ,
