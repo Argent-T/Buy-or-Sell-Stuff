@@ -3,6 +3,7 @@ import API from "../utils/API";
 import { Input, TextArea, FormBtn, Select } from "../components/Form";
 import Navbar from "../components/Navbar";
 import UserContext from "../utils/UserContext";
+import { Link } from 'react-router-dom'
 
 
 function Sell() {
@@ -61,7 +62,7 @@ function Sell() {
     })
   }
   //////////////////////////////////////////////////
-  const user = useContext(UserContext);
+
   function handleFormSubmit(event) {
 
     event.preventDefault();
@@ -115,7 +116,7 @@ function Sell() {
   }, [bidOption])
   /////////////////////////////////////////
 
-
+const user = useContext(UserContext);
 
   return (
     <>
@@ -212,12 +213,14 @@ function Sell() {
             </div>
             <div className="hr"></div>
 
+            
             <button className="sublist-btn"
               disabled={!(formObject.title && formObject.price && formObject.description)}
               onClick={handleFormSubmit}
             >
-              Submit Listing
+              <Link to="/congrats">Submit Listing</Link>
                </button>
+               
 
           </div>
         </div>
