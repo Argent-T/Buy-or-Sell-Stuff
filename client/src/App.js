@@ -55,7 +55,8 @@ class App extends Component {
           state: response.data.state,
           zip: response.data.zip,
           email: response.data.email,
-          listings: response.data.listings
+          listings: response.data.listings,
+          purchased: response.data.purchased
         })
       } else {
         console.log('Get user: no user');

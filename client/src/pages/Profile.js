@@ -1,18 +1,20 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import Navbar from "../components/Navbar";
 import API from "../utils/API";
 import { Link, useParams } from "react-router-dom";
 import { List, ListItem } from "../components/List";
+import UserContext from "../utils/UserContext";
 
 
 function Profile(props) {
+    const userinfo = useContext(UserContext);
 
     const [listings, setListings] = useState([]);
     const [results, setResults] = useState([]);
 
     // Load all books and store them with setBooks
     useEffect(() => {
-        loadListings();
+        loadPurchased();
         
     }, []);
 
@@ -36,11 +38,13 @@ function Profile(props) {
         }
       }
 
-      function loadListings() {
-        API.getListings()
+      function loadPurchased() {
+          console.log(userinfo.purchased)
+        API.getPurchased(userinfo.purchased)
             .then(res => {
                 setListings(res.data)
                 setResults(res.data)
+                console.log(res.data)
             })
             .catch(err => console.log(err));
     }
@@ -49,7 +53,7 @@ function Profile(props) {
         <>
             <Navbar />
             <br></br>
-            <h1 className="center is-size-2"><strong>{user.username}'s Profile</strong></h1>
+            <h1 className="center is-size-2"><strong>{userinfo.username}'s Profile</strong></h1>
             <br></br>
             <div className="column center is-half is-size-4">
                 <strong>Basic Information</strong>
