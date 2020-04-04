@@ -29,7 +29,8 @@ function Detail(props) {
             console.log(update);
             API.updateListing(update._id, update);
             // axios.post("/api/listings", update );
-            window.location.href = "/profile"; 
+            alert("Congrats! Your bought this item")
+            window.location.href = "/buy"; 
             
         }
         else{
@@ -63,7 +64,8 @@ function Detail(props) {
                 ...listing,
                topBid: val 
             })
-            
+            alert("Good Luck! Your bid was placed")
+            window.location.href = "/buy"; 
         }
         bid.classList.remove("is-active")
     }
@@ -133,7 +135,7 @@ function buttonText(){
                        
                         <div id="postDate">Date Listed: {listingDate()}</div>
                         <div id="bidDate">{bidDate()}</div>
-                        <div id="biddername" >Current Bid by: {listing.topBidUser}</div>
+                        {/* <div id="biddername" >Current Bid by: {listing.topBidUser}</div> */}
                         <div id="remainingTime">{remainingTime()}</div>
                         </div>
                         <div className="column is-half">
