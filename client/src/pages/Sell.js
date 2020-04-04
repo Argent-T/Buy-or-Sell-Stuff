@@ -214,9 +214,9 @@ const user = useContext(UserContext);
             {/* <div className="hr"></div> */}
             <button className="sublist-btn"
               disabled={!(formObject.title && formObject.price && formObject.description)}
-              onClick={handleFormSubmit}>
-              Submit Listing
-
+              onClick={handleFormSubmit}
+            >
+              <Link to="/congrats">Submit Listing</Link>
                </button>
                
 
