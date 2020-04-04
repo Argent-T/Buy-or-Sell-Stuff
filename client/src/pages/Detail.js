@@ -28,9 +28,9 @@ function Detail(props) {
             var update = {...listing, buyer: user.username, available: false}
             console.log(update);
             API.updateListing(update._id, update);
-            // axios.post("/api/listings", update )
-
-
+            // axios.post("/api/listings", update );
+            window.location.href = "/profile"; 
+            
         }
         else{
             console.log(bid)
@@ -39,6 +39,7 @@ function Detail(props) {
 
       
     }
+
 
     function closeModal(){
         bid.classList.remove("is-active")
@@ -141,7 +142,7 @@ function buttonText(){
                                 <div className="modal-card">
                                     <header className="modal-card-head">
                                         <p className="modal-card-title">{buttonText()}</p>
-                                        <button onClick={closeModal} className="delete" aria-label="close"></button>
+                                        <button  onClick={closeModal} className="delete" aria-label="close"></button>
                                     </header>
                                     <section className="modal-card-body">
                                         <form>
@@ -154,7 +155,7 @@ function buttonText(){
                                     </footer>
                                 </div>
                             </div>
-                         <button className="placeBid" onClick={placeBid}>{buttonText()}</button>
+                         <button className="placeBid"  onClick={placeBid}>{buttonText()}</button>
                         </div>
                     </div>
                 </div>
