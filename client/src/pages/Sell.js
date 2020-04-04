@@ -1,8 +1,9 @@
-import React, { useState, useEffect, useContext } from "react";
+import React, { useState, useEffect, useContext,} from "react";
 import API from "../utils/API";
 import { Input, TextArea, FormBtn, Select } from "../components/Form";
 import Navbar from "../components/Navbar";
 import UserContext from "../utils/UserContext";
+import { Link } from "react-router-dom";
 
 
 function Sell() {
@@ -29,7 +30,9 @@ function Sell() {
       .catch(err => console.log(err));
   };
 
-
+function buy (){
+ window.location.href= "/buy"
+}
   // Handles updating component state when the user types into the input field
   function handleInputChange(event) {
     const { name, value } = event.target;
@@ -91,11 +94,14 @@ function Sell() {
               available: true
             })
               .then(res => loadListings())
-              .catch(err => console.log(err));
+              .catch(err => console.log(err))
+              
           })
-        console.log("logged");
+        console.log("logged")
+        .then(<Link to="/buy"></Link>);
       }
     }
+    
   }
 
   // Show or hide date selection/////////////////////
@@ -215,10 +221,13 @@ function Sell() {
             <button className="sublist-btn"
               disabled={!(formObject.title && formObject.price && formObject.description)}
               onClick={handleFormSubmit}
+              onClick={buy}
+              
             >
               Submit Listing
-               </button>
+               </button> 
 
+              
           </div>
         </div>
       </section>
