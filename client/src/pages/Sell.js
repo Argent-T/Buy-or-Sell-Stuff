@@ -121,9 +121,9 @@ function Sell() {
       <Navbar />
       <section className="mySection">
         <div className="columns is-vcentered">
-          <div className="column is-6-tablet is-6-desktop">
+          <div className="column selCol1 is-6-tablet is-6-desktop">
             <div className="myHero">
-  <h1>What Are You Selling? {}</h1>
+              <h1>What Are You Selling? {}</h1>
               <form action="/upload/photo" encType="multipart/form-data" method="POST">
                 <div className="hr"></div>
                 <Select
@@ -187,34 +187,31 @@ function Sell() {
               </form>
             </div>
           </div>
-          <div className="is-divider-vertical" data-content="OR"></div>
-          <div className="column is-5-tablet is-5-desktop">
-            <h1 className="content is-large headingTitle"><strong>See Your Listing Here</strong></h1>
+          <div className="column sellCol2 is-5-tablet is-5-desktop">
+            <h1 className="listhead">Your Listing Image</h1>
             <div className="hr"></div>
 
-            <div className="columns">
-              <div className="column">
-                <p className="sellTitle"><strong>{formObject.title}</strong></p>
+            {/* <div className="columns">
+              <div className="column"> */}
+                {/* <p className="sellTitle"><strong>{formObject.title}</strong></p>
                 <p className="sellDesc"><strong>{formObject.description}</strong></p>
 
-                <p className="sellPrice"><strong>${formObject.price}</strong></p>
-                <p className="sellOption"><strong>For {bidOption}</strong></p>
-                <p className="optionDate"><strong>{formObject.bidDate}</strong></p>
-              </div>
+                <p className="sellPrice"><strong>{formObject.price}</strong></p>
+                <p className="sellOption"><strong>{bidOption}</strong></p>
+                <p className="optionDate"><strong>{formObject.bidDate}</strong></p> */}
+              {/* </div> */}
 
               <div className="column">
                 <figure className="image is-3by2 sellImg">
-                  <img src={prevImg} alt="" />
+                  <img className="seeImg" src={prevImg} alt="" />
                 </figure>
               </div>
 
-            </div>
-            <div className="hr"></div>
-
+            {/* </div> */}
+            {/* <div className="hr"></div> */}
             <button className="sublist-btn"
               disabled={!(formObject.title && formObject.price && formObject.description)}
-              onClick={handleFormSubmit}
-            >
+              onClick={handleFormSubmit}>
               Submit Listing
                </button>
 

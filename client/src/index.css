@@ -165,8 +165,12 @@ padding: 200px !important;
 /* Sell */
 
 .inputTitle, .inputPrice, .inputDesc {
-font-size: 20px;
+font-size: 25px;
 width: 300px;
+border-radius: 6%;
+border: 2px solid gray;
+
+
 }
 .headingTitle, .headingPrice, .headingDesc {
 font-size: 20px;
@@ -214,7 +218,6 @@ color: black !important;
 }
 .mySection {
   background-image: radial-gradient(white, rgb(236, 236, 156),  rgb(71, 171, 218));
-/* background-color: rgb(240, 221, 161); */
 color: black;
 border: 1px solid white;
 min-height: calc(100vh - 60px);
@@ -265,9 +268,10 @@ font-weight: 500px;
   border-radius: 8px;
   font-size: 20px;
   font-weight: bold;
-  float: left;
-  margin-top: 20px;
-  margin-left: 200px;
+  margin-bottom: 30px;
+  /* float: left; */
+  /* margin-top: 20px; */
+  /* margin-left: 200px; */
 }
 .sellImg {
   object-fit: contain;
@@ -278,7 +282,7 @@ font-weight: 500px;
 .sellTitle {
   text-align: center;
   text-transform: capitalize;
-  font-size: 40px;
+  font-size: 30px;
 }
 .sellOption, .sellPrice {
   text-align: center;
@@ -288,6 +292,10 @@ font-weight: 500px;
 .sellDesc {
   font-size: 20px;
 }
+/* .seeImg {
+  width: 10px !important;
+  height: 10px !important;
+} */
 
 /* End Sell */
 
@@ -314,6 +322,9 @@ margin: 30px;
 
 .myHero h1 {
 font-size: 30px
+}
+.listhead {
+  font-size: 30px;
 }
 #loginSignup{
   color:white;
@@ -376,12 +387,37 @@ font-size: 30px;
     padding: 50px !important;
   }
   .sellImg {
-    width: 100%;
-    height: 100%;
+    width: 70%;
+    height: 70%;
+    margin: auto;
   }
   .card {
+    width: 50%;
+    margin: auto;
+  }
+  .sellCol2 {
     width: 100%;
   }
+  .hr {
+    width: 300px;
+  }
+  .sellImg {
+    width: 70%;
+    height: 70%;
+    margin: auto;
+    align-content: center;
+  }
+  .sublist-btn {
+    border: 2px solid gray;
+    color: gray;
+    background-color: white;
+    padding: 8px 20px;
+    border-radius: 8px;
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 30px;
+  }
+
 
   }
 
@@ -396,9 +432,22 @@ font-size: 30px;
     
     }
     .sellImg {
-      width: 100%;
-      height: 100%;
+      width: 70%;
+      height: 70%;
+      margin: auto;
+      align-content: center;
     }
-  }
+    .sublist-btn {
+      border: 2px solid gray;
+      color: gray;
+      background-color: white;
+      padding: 8px 20px;
+      border-radius: 8px;
+      font-size: 20px;
+      font-weight: bold;
+      margin-bottom: 30px;
+    }
+    
+    }
 
 
