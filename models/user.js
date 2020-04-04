@@ -9,33 +9,40 @@ const userSchema = new Schema({
 	username: {
 		type: String,
 		unique: false,
-		required: false
+		required: true
 	},
 	password: {
 		type: String,
 		unique: false,
-		required: false
+		required: true
 	},
 	first: {
 		type: String,
+		required: true
 	},
 	last: {
 		type: String,
+		required: true
 	},
 	address: {
 		type: String,
+		required: true
 	},
 	city: {
 		type: String,
+		required: true
 	},
 	state: {
 		type: String,
+		required: true
 	},
 	zip: {
 		type: String,
+		required: true
 	},
 	email: {
 		type: String,
+		required: true
 	},
 	listings: [{ type: Schema.Types.ObjectId, ref: 'Listing'}],
 	purchased: [{ type: Schema.Types.ObjectId, ref: 'Listing'}]
