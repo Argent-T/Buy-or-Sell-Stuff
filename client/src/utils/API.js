@@ -8,6 +8,12 @@ export default {
   getListings: function() {
     return axios.get("/api/listings");
   },
+  getPurchased: function(id){
+    console.log("api-------------------", id)
+    return axios.get("/api/profile/" + id);
+  }
+  
+  ,
   // Gets the book with the given id
   getListing: function(id) {
     return axios.get("/api/listings/" + id);
