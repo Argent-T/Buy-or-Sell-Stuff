@@ -163,7 +163,7 @@ function buttonText(){
                 </div>
 
                 <div className="column">
-                    <div><img width="600px" height="600px" src={require = (listing.img)} /></div>
+                    <div><img width="300px" height="300px" src={require = (listing.img)} /></div>
                     <div className="columns">
                         <div className="column buttons">
                             {/* <!-- Facebook --> */}
