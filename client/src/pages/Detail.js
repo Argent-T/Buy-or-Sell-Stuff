@@ -2,8 +2,10 @@ import React, { useEffect, useState, useContext } from "react";
 import { Link, useParams } from "react-router-dom";
 import API from "../utils/API";
 import Navbar from "../components/Navbar";
-import axios from "axios";
+
+
 import UserContext from "../utils/UserContext";
+import  GoogleApiWrapper  from "../components/maps/index";
 
 
 function Detail(props) {
@@ -158,6 +160,7 @@ function buttonText(){
                          <button className="placeBid"  onClick={placeBid}>{buttonText()}</button>
                         </div>
                     </div>
+
                 </div>
 
                 <div className="column">
@@ -191,6 +194,8 @@ function buttonText(){
                 </div>
             </div>
             <Link to="/buy">← Back</Link>
+
+        <GoogleApiWrapper/>
 
         </>
     );
